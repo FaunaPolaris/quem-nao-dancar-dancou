@@ -1,12 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://7t6gjyxgshnk"]
+[gd_scene load_steps=18 format=3 uid="uid://7t6gjyxgshnk"]
 
 [ext_resource type="Script" uid="uid://b0v8ighdy3ybo" path="res://levelSelect/levelSelect.gd" id="1_hcn63"]
 [ext_resource type="Texture2D" uid="uid://w62rfgkmj2n7" path="res://levelSelect/assets/stage.jpg" id="1_pmsvn"]
-[ext_resource type="Texture2D" uid="uid://da4oi3b52er4b" path="res://levelSelect/assets/branch.png" id="2_hcn63"]
+[ext_resource type="Texture2D" uid="uid://da4oi3b52er4b" path="res://Shared/assets/branch.png" id="2_hcn63"]
 [ext_resource type="Texture2D" uid="uid://b8k2hhidci1gp" path="res://levelSelect/assets/branch2.png" id="3_q4fc6"]
 [ext_resource type="Texture2D" uid="uid://bqk782u2whkw2" path="res://Shared/assets/tangaraCabeca-de-ouro.jpeg" id="4_gmxw2"]
-[ext_resource type="Texture2D" uid="uid://cvtqax8ofcdrc" path="res://levelSelect/assets/tangaraDancarino.jpg" id="5_xieua"]
+[ext_resource type="Texture2D" uid="uid://cvtqax8ofcdrc" path="res://Shared/assets/tangaraDancarino.jpg" id="5_xieua"]
 [ext_resource type="Texture2D" uid="uid://dqv3j851iu40n" path="res://levelSelect/assets/lock.jpg" id="6_lr5va"]
+[ext_resource type="Shader" uid="uid://bcc3ymfw0urw5" path="res://Shared/shader/godRay.gdshader" id="6_q4fc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmsvn"]
 size = Vector2(591, 235)
@@ -24,6 +25,25 @@ font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_lr5va"]
 font_size = 26
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmxw2"]
+shader = ExtResource("6_q4fc6")
+shader_parameter/angle = -0.3
+shader_parameter/position = -0.2
+shader_parameter/speed = 1.0
+shader_parameter/ray1_density = 8.0
+shader_parameter/ray2_density = 30.0
+shader_parameter/hdr = false
+shader_parameter/seed = 5.37
+shader_parameter/spread = 0.75
+shader_parameter/cutoff = 0.05
+shader_parameter/falloff = 0.4
+shader_parameter/edge_fade = 1.0
+shader_parameter/ray2_intensity = 1.0
+shader_parameter/godray_color = Vector4(255, 255, 255, 6)
+shader_parameter/brightness = 1.0
+shader_parameter/contrast = 0.18
+shader_parameter/blend_mode = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcn63"]
 size = Vector2(990, 248.571)
@@ -76,7 +96,6 @@ text = "Tangará cabeca-encarnada"
 label_settings = SubResource("LabelSettings_hcn63")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TangaraCabeca-encarnada"]
-visible = false
 custom_minimum_size = Vector2(64, 64)
 offset_left = -457.0
 offset_top = -61.0
@@ -126,6 +145,14 @@ vertical_alignment = 1
 clip_text = true
 max_lines_visible = 9
 
+[node name="spotlight" type="ColorRect" parent="TangaraCabeca-encarnada"]
+visible = false
+material = SubResource("ShaderMaterial_gmxw2")
+offset_left = -590.0
+offset_top = -760.0
+offset_right = 247.0
+offset_bottom = 43.0
+
 [node name="TangaraDancarino" type="Sprite2D" parent="."]
 position = Vector2(1257, 754)
 scale = Vector2(0.7, 0.7)
@@ -144,6 +171,14 @@ offset_right = 182.714
 offset_bottom = 182.571
 text = "Tangará Dancarino"
 label_settings = SubResource("LabelSettings_q4fc6")
+
+[node name="spotlight" type="ColorRect" parent="TangaraDancarino"]
+visible = false
+material = SubResource("ShaderMaterial_gmxw2")
+offset_left = -624.0
+offset_top = -1226.0
+offset_right = 247.0
+offset_bottom = 23.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TangaraDancarino"]
 visible = false
@@ -218,7 +253,6 @@ position_smoothing_enabled = true
 [connection signal="mouse_entered" from="TangaraCabeca-encarnada/Area2D" to="." method="_on_cabeca_encarnada_mouse_entered"]
 [connection signal="mouse_exited" from="TangaraCabeca-encarnada/Area2D" to="." method="_on_cabeca_encarnada_mouse_exited"]
 [connection signal="pressed" from="TangaraCabeca-encarnada/VBoxContainer/play" to="." method="_on_cabeca_encarnada_pressed"]
-[connection signal="pressed" from="TangaraCabeca-encarnada/VBoxContainer/tutorial" to="." method="_on_score_board_pressed"]
 [connection signal="mouse_entered" from="TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_entered"]
 [connection signal="mouse_exited" from="TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_exited"]
 [connection signal="pressed" from="TangaraDancarino/VBoxContainer/play" to="." method="_on_dancarino_pressed"]

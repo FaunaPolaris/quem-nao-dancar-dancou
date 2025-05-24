@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b20qxhhyj0u7o"]
+
+[ext_resource type="Script" uid="uid://c6rec31hwihuq" path="res://gameDancarino/Individual/individual.gd" id="1_uh68m"]
+[ext_resource type="Texture2D" uid="uid://cvtqax8ofcdrc" path="res://Shared/assets/tangaraDancarino.jpg" id="2_n5w06"]
+
+[node name="individual" type="Node2D"]
+script = ExtResource("1_uh68m")
+
+[node name="art" type="Sprite2D" parent="."]
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_n5w06")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_left = -39.0
+offset_top = -155.0
+offset_right = 31.0
+offset_bottom = -81.0
+color = Color(0.571722, 0.569166, 0, 1)

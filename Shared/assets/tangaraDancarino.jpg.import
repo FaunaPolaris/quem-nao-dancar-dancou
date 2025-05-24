@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://da4oi3b52er4b"
-path="res://.godot/imported/branch.png-0f5ad093ba360e61e563e8b4f1f28720.ctex"
+uid="uid://cvtqax8ofcdrc"
+path="res://.godot/imported/tangaraDancarino.jpg-a4b5b1b2ccd8f3dedbc1773f0dcb3e6a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levelSelect/assets/branch.png"
-dest_files=["res://.godot/imported/branch.png-0f5ad093ba360e61e563e8b4f1f28720.ctex"]
+source_file="res://Shared/assets/tangaraDancarino.jpg"
+dest_files=["res://.godot/imported/tangaraDancarino.jpg-a4b5b1b2ccd8f3dedbc1773f0dcb3e6a.ctex"]
 
 [params]
 

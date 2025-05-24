@@ -1,0 +1,116 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnksv5r3ellbr"]
+
+[ext_resource type="Script" uid="uid://2lhtgmq35sfa" path="res://gameDancarino/note/note.gd" id="1_vc1dw"]
+[ext_resource type="Shader" uid="uid://mfx8562fxuso" path="res://saveScore/Shader/radialLight.gdshader" id="2_wqe6w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qddas"]
+shader = ExtResource("2_wqe6w")
+shader_parameter/amplitude = 100.0
+shader_parameter/frequency = 2.0
+shader_parameter/light_magnitude = 32.0
+shader_parameter/color_spread = 0.3
+shader_parameter/light_distance = 0.0
+shader_parameter/speed = 0.03
+shader_parameter/cut_angle = false
+shader_parameter/angle = 120.0
+shader_parameter/yshift = -2.2352e-08
+
+[sub_resource type="Gradient" id="Gradient_bw6pd"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.221311, 0.57377, 0.762295)
+colors = PackedColorArray(0.960784, 0.760784, 0, 0.537255, 0.678431, 0.803922, 0.580392, 0.580392, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ystw2"]
+gradient = SubResource("Gradient_bw6pd")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_26vcf"]
+texture = SubResource("GradientTexture2D_ystw2")
+
+[sub_resource type="LabelSettings" id="LabelSettings_ctjkv"]
+line_spacing = 0.0
+font_size = 80
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_ctjkv"]
+resource_name = "decaying"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/light_magnitude")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [32.0, 8.0]
+}
+
+[sub_resource type="Animation" id="Animation_wqe6w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/light_magnitude")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [32.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hqr5v"]
+_data = {
+&"RESET": SubResource("Animation_wqe6w"),
+&"decaying": SubResource("Animation_ctjkv")
+}
+
+[node name="note" type="Node2D"]
+script = ExtResource("1_vc1dw")
+
+[node name="lifespan" type="Timer" parent="."]
+wait_time = 0.6
+autostart = true
+
+[node name="decay" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_qddas")
+custom_minimum_size = Vector2(128, 128)
+offset_left = -66.0
+offset_top = -58.0
+offset_right = 193.0
+offset_bottom = 181.0
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_26vcf")
+
+[node name="key" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(128, 128)
+offset_right = 128.0
+offset_bottom = 128.0
+text = "x"
+label_settings = SubResource("LabelSettings_ctjkv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hqr5v")
+}
+autoplay = "decaying"
+
+[connection signal="timeout" from="lifespan" to="." method="_on_lifespan_timeout"]
+[connection signal="timeout" from="decay" to="." method="_on_decay_timeout"]

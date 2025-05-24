@@ -197,10 +197,10 @@ void fragment() {
 
     // Use the blended color as the final "shine".
     vec3 shine = blended;
-    
+
     // Apply brightness and contrast adjustments.
     // Contrast adjustment: (col - 0.5) * contrast + 0.5, then multiplied by brightness.
     vec3 adjusted = ((shine - vec3(0.5)) * contrast + vec3(0.5)) * brightness;
-    
+
     COLOR = vec4(adjusted, rays * godray_color.a);
 }
