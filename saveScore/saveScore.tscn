@@ -100,6 +100,7 @@ text = "Score: XXXXX"
 label_settings = SubResource("LabelSettings_xc2gp")
 
 [node name="LineEdit" type="LineEdit" parent="Score"]
+layout_mode = 0
 offset_left = 446.0
 offset_top = 798.0
 offset_right = 838.0
