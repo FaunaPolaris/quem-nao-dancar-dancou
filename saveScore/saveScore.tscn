@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bqk782u2whkw2" path="res://Shared/assets/tangaraCabeca-de-ouro.jpeg" id="1_38tm6"]
 [ext_resource type="Script" uid="uid://bc7b7mguxljsy" path="res://saveScore/saveScore.gd" id="1_78qpx"]
-[ext_resource type="Shader" uid="uid://cll87e7ece4gx" path="res://shader/waterNoise.gdshader" id="1_xc2gp"]
+[ext_resource type="Shader" uid="uid://cll87e7ece4gx" path="res://saveScore/Shader/waterNoise.gdshader" id="1_xc2gp"]
 [ext_resource type="Shader" uid="uid://bcc3ymfw0urw5" path="res://saveScore/Shader/godRay.gdshader" id="3_78qpx"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tlbik"]
