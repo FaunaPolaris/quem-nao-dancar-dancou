@@ -1,0 +1,173 @@
+[gd_scene load_steps=13 format=3 uid="uid://cdaos02unngm4"]
+
+[ext_resource type="Script" uid="uid://bh5qyttis4im1" path="res://gameDancarino/popUp/popUp.gd" id="1_1clbi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fqcf3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1clbi"]
+font_size = 96
+font_color = Color(1, 1, 0.352941, 1)
+outline_size = 4
+outline_color = Color(0.737255, 0.529412, 0, 1)
+shadow_size = 6
+shadow_color = Color(0.0431373, 0.0431373, 0.0431373, 0.419608)
+
+[sub_resource type="Animation" id="Animation_hxoxi"]
+resource_name = "wobbly"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, -0.0872665]
+}
+
+[sub_resource type="Animation" id="Animation_wys62"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5b486"]
+_data = {
+&"RESET": SubResource("Animation_wys62"),
+&"wobbly": SubResource("Animation_hxoxi")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_hxoxi"]
+font_size = 64
+font_color = Color(0.235294, 0.427451, 0.662745, 1)
+outline_size = 8
+outline_color = Color(7.70092e-07, 0.985536, 0.991816, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wys62"]
+font_size = 56
+font_color = Color(1.39579e-06, 0.711358, 0.230533, 1)
+outline_size = 6
+outline_color = Color(0.116252, 0.271182, 0.116179, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5b486"]
+font_size = 64
+font_color = Color(0.766906, 0, 0.015717, 1)
+outline_size = 8
+outline_color = Color(1, 0.441542, 0.392823, 1)
+
+[sub_resource type="Animation" id="Animation_1ig6n"]
+resource_name = "cry"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1.8, 1.8)]
+}
+
+[sub_resource type="Animation" id="Animation_4pfi4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18l0x"]
+_data = {
+&"RESET": SubResource("Animation_4pfi4"),
+&"cry": SubResource("Animation_1ig6n")
+}
+
+[node name="popUp" type="RigidBody2D"]
+gravity_scale = -0.2
+script = ExtResource("1_1clbi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fqcf3")
+
+[node name="perfect" type="Label" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -165.5
+offset_top = -66.0
+offset_right = 165.5
+offset_bottom = 66.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(165.5, 67)
+size_flags_horizontal = 4
+text = "Perfect"
+label_settings = SubResource("LabelSettings_1clbi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="perfect"]
+libraries = {
+&"": SubResource("AnimationLibrary_5b486")
+}
+autoplay = "wobbly"
+
+[node name="good" type="Label" parent="."]
+visible = false
+offset_left = -92.0
+offset_top = -51.0
+offset_right = 90.0
+offset_bottom = 37.0
+text = "Good!"
+label_settings = SubResource("LabelSettings_hxoxi")
+horizontal_alignment = 1
+
+[node name="okay" type="Label" parent="."]
+visible = false
+offset_left = -79.0
+offset_top = -46.0
+offset_right = 79.0
+offset_bottom = 42.0
+text = "Okay"
+label_settings = SubResource("LabelSettings_wys62")
+horizontal_alignment = 1
+
+[node name="missed" type="Label" parent="."]
+visible = false
+offset_left = -106.0
+offset_top = -49.0
+offset_right = 110.0
+offset_bottom = 39.0
+pivot_offset = Vector2(114, 50)
+text = "Missed"
+label_settings = SubResource("LabelSettings_5b486")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="missed"]
+libraries = {
+&"": SubResource("AnimationLibrary_18l0x")
+}
+autoplay = "cry"
+
+[node name="lifespan" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="lifespan" to="." method="_on_lifespan_timeout"]

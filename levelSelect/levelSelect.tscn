@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://7t6gjyxgshnk"]
+[gd_scene load_steps=17 format=3 uid="uid://7t6gjyxgshnk"]
 
 [ext_resource type="Script" uid="uid://b0v8ighdy3ybo" path="res://levelSelect/levelSelect.gd" id="1_hcn63"]
 [ext_resource type="Texture2D" uid="uid://w62rfgkmj2n7" path="res://levelSelect/assets/stage.jpg" id="1_pmsvn"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b8k2hhidci1gp" path="res://levelSelect/assets/branch2.png" id="3_q4fc6"]
 [ext_resource type="Texture2D" uid="uid://bqk782u2whkw2" path="res://Shared/assets/tangaraCabeca-de-ouro.jpeg" id="4_gmxw2"]
 [ext_resource type="Texture2D" uid="uid://cvtqax8ofcdrc" path="res://Shared/assets/tangaraDancarino.jpg" id="5_xieua"]
-[ext_resource type="Texture2D" uid="uid://dqv3j851iu40n" path="res://levelSelect/assets/lock.jpg" id="6_lr5va"]
 [ext_resource type="Shader" uid="uid://bcc3ymfw0urw5" path="res://Shared/shader/godRay.gdshader" id="6_q4fc6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmsvn"]
@@ -96,6 +95,7 @@ text = "Tangará cabeca-encarnada"
 label_settings = SubResource("LabelSettings_hcn63")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TangaraCabeca-encarnada"]
+visible = false
 custom_minimum_size = Vector2(64, 64)
 offset_left = -457.0
 offset_top = -61.0
@@ -231,12 +231,6 @@ label_settings = SubResource("LabelSettings_lr5va")
 vertical_alignment = 1
 clip_text = true
 max_lines_visible = 9
-
-[node name="Lock" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.388235)
-position = Vector2(1253, 755)
-scale = Vector2(0.166327, 0.166327)
-texture = ExtResource("6_lr5va")
 
 [node name="title" type="Label" parent="."]
 offset_left = 695.0

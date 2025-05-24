@@ -1,6 +1,7 @@
 extends Node2D
 
 var	mock_gameplay = load("res://gameCabecaEncarnada/gameCabecaEncarnada.tscn")
+var	dancarino_gameplay = load("res://gameDancarino/gameDancarino.tscn")
 
 func _process(delta):
 	var mouse_position = get_viewport().get_mouse_position()
@@ -41,4 +42,4 @@ func _on_cabeca_encarnada_pressed() -> void:
 
 func _on_dancarino_pressed() -> void:
 	PlayerInfo.current_bird = "dancarino"
-	get_tree().change_scene_to_packed(mock_gameplay)
+	get_tree().change_scene_to_packed(dancarino_gameplay)
