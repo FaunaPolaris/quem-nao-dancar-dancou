@@ -1,5 +1,8 @@
 extends Node2D
 
+func	_ready():
+	$Score.set_text("".join(PackedStringArray([$Score.text, str(PlayerInfo.score)])))
+
 func _on_line_edit_text_submitted(new_text: String) -> void:
 	PlayerInfo.player_name = new_text
 	ScoreBoard.addCurrentPlayer()

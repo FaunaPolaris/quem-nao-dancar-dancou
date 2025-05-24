@@ -145,18 +145,57 @@ offset_bottom = 182.571
 text = "Tangará Dancarino"
 label_settings = SubResource("LabelSettings_q4fc6")
 
-[node name="VBoxContainer" type="CenterContainer" parent="TangaraDancarino"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TangaraDancarino"]
 visible = false
 custom_minimum_size = Vector2(64, 64)
 offset_left = 227.143
 offset_top = -91.4286
-offset_right = 511.143
+offset_right = 568.143
 offset_bottom = 106.571
 
-[node name="Button" type="Button" parent="TangaraDancarino/VBoxContainer"]
+[node name="play" type="Button" parent="TangaraDancarino/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
-text = "Bloqueado"
+text = "jogar"
+
+[node name="tutorial" type="Button" parent="TangaraDancarino/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "tutorial"
+
+[node name="ScoreBoard" type="Panel" parent="TangaraDancarino"]
+visible = false
+offset_left = -207.0
+offset_top = -584.0
+offset_right = 573.0
+offset_bottom = -148.0
+
+[node name="VBox" type="VBoxContainer" parent="TangaraDancarino/ScoreBoard"]
+layout_mode = 0
+offset_right = 577.0
+offset_bottom = 424.0
+
+[node name="title" type="Label" parent="TangaraDancarino/ScoreBoard/VBox"]
+layout_mode = 2
+text = "Placar:"
+label_settings = SubResource("LabelSettings_xieua")
+
+[node name="Scores" type="Label" parent="TangaraDancarino/ScoreBoard/VBox"]
+layout_mode = 2
+text = "1.
+2.
+3.
+4.
+5.
+6.
+7.
+8.
+9.
+"
+label_settings = SubResource("LabelSettings_lr5va")
+vertical_alignment = 1
+clip_text = true
+max_lines_visible = 9
 
 [node name="Lock" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.388235)
@@ -182,4 +221,4 @@ position_smoothing_enabled = true
 [connection signal="pressed" from="TangaraCabeca-encarnada/VBoxContainer/tutorial" to="." method="_on_score_board_pressed"]
 [connection signal="mouse_entered" from="TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_entered"]
 [connection signal="mouse_exited" from="TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_exited"]
-[connection signal="pressed" from="TangaraDancarino/VBoxContainer/Button" to="." method="_on_dancarino_pressed"]
+[connection signal="pressed" from="TangaraDancarino/VBoxContainer/play" to="." method="_on_dancarino_pressed"]
