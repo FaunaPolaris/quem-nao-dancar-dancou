@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bqk782u2whkw2"
-path="res://.godot/imported/tangaraCabeca-de-ouro.jpeg-3f429f37931b74d74564944cf05c1b35.ctex"
+path="res://.godot/imported/tangaraCabeca-de-ouro.jpeg-28efbf0c97d44e724f7eaf78a1158e69.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levelSelect/assets/tangaraCabeca-de-ouro.jpeg"
-dest_files=["res://.godot/imported/tangaraCabeca-de-ouro.jpeg-3f429f37931b74d74564944cf05c1b35.ctex"]
+source_file="res://Shared/assets/tangaraCabeca-de-ouro.jpeg"
+dest_files=["res://.godot/imported/tangaraCabeca-de-ouro.jpeg-28efbf0c97d44e724f7eaf78a1158e69.ctex"]
 
 [params]
 
