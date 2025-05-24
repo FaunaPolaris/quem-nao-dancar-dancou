@@ -1,18 +1,20 @@
 extends Node
 
 var	dancarino	: Dictionary = {}
-var encarnado	: Dictionary = {}
+var encarnado	: Array = []
 
 func	addCurrentPlayer():
 	if PlayerInfo.current_bird == "dancarino":
-		dancarino.merge({PlayerInfo.player_name : PlayerInfo.score})
+		dancarino.merge({PlayerInfo.score : PlayerInfo.player_name})
 	if PlayerInfo.current_bird == "encarnado":
-		encarnado.merge({PlayerInfo.player_name : PlayerInfo.score})
+		encarnado.append([PlayerInfo.score, PlayerInfo.player_name])
+		encarnado.sort()
+		encarnado.reverse()
+		if encarnado.size() > 9:
+			encarnado.pop_back()
 
 func	loadTo(label):
 	var complete_score : String = ""
-	for key in encarnado:
-		print("Found Player: ", key)
-		complete_score = "".join(PackedStringArray([complete_score, key, " : ", encarnado.get(key), "\n"]))
-		print(complete_score)
+	for value in encarnado:
+		complete_score = "".join(PackedStringArray([complete_score, value[1], " : ", value[0], "\n"]))
 	label.set_text(complete_score)

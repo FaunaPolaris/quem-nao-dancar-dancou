@@ -29,4 +29,12 @@ offset_bottom = 1075.0
 theme_override_font_sizes/font_size = 128
 text = "Ganhe"
 
+[node name="TextEdit" type="TextEdit" parent="."]
+offset_left = 1526.0
+offset_top = 809.0
+offset_right = 1863.0
+offset_bottom = 868.0
+theme_override_font_sizes/font_size = 32
+placeholder_text = "your score"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -23,7 +23,7 @@ Button/font_sizes/font_size = 48
 font_size = 64
 
 [sub_resource type="LabelSettings" id="LabelSettings_lr5va"]
-font_size = 20
+font_size = 26
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcn63"]
 size = Vector2(990, 248.571)
