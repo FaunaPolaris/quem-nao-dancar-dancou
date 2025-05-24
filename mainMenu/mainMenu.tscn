@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://dn273r77ha3f4"]
+
+[ext_resource type="Texture2D" uid="uid://r4wj4dvh16im" path="res://mainMenu/assets/treeBackground.jpeg" id="1_6ay73"]
+[ext_resource type="Script" uid="uid://c6gdvjltg18fg" path="res://mainMenu/mainMenu.gd" id="1_b4frg"]
+[ext_resource type="Texture2D" uid="uid://llfvp8igt871" path="res://mainMenu/assets/house.png" id="2_b4frg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_yobga"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_b4frg"]
+resource_name = "transition"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(5, 5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(960, 540), Vector2(900, 730)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0333333, 1.23333),
+"transitions": PackedFloat32Array(5.46416, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_yobga"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:zoom")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(960, 540)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0o04g"]
+_data = {
+&"RESET": SubResource("Animation_yobga"),
+&"transition": SubResource("Animation_b4frg")
+}
+
+[node name="mainMenu" type="Node2D"]
+script = ExtResource("1_b4frg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.87977, 1.61029)
+texture = ExtResource("1_6ay73")
+centered = false
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(893, 718)
+scale = Vector2(0.0141878, 0.0159802)
+texture = ExtResource("2_b4frg")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 723.0
+offset_top = 916.0
+offset_right = 1086.0
+offset_bottom = 976.0
+text = "pressione para comecar (pisca)"
+label_settings = SubResource("LabelSettings_yobga")
+
+[node name="transition" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0o04g")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1926.0
+offset_bottom = 1088.0
+color = Color(0, 0, 0, 0)
+
+[connection signal="animation_finished" from="transition" to="." method="_on_transition_animation_finished"]

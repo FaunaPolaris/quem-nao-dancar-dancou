@@ -1,0 +1,136 @@
+[gd_scene load_steps=13 format=3 uid="uid://7t6gjyxgshnk"]
+
+[ext_resource type="Script" uid="uid://b0v8ighdy3ybo" path="res://levelSelect/levelSelect.gd" id="1_hcn63"]
+[ext_resource type="Texture2D" uid="uid://w62rfgkmj2n7" path="res://levelSelect/assets/stage.jpg" id="1_pmsvn"]
+[ext_resource type="Texture2D" uid="uid://da4oi3b52er4b" path="res://levelSelect/assets/branch.png" id="2_hcn63"]
+[ext_resource type="Texture2D" uid="uid://b8k2hhidci1gp" path="res://levelSelect/assets/branch2.png" id="3_q4fc6"]
+[ext_resource type="Texture2D" uid="uid://bqk782u2whkw2" path="res://levelSelect/assets/tangaraCabeca-de-ouro.jpeg" id="4_gmxw2"]
+[ext_resource type="Texture2D" uid="uid://cvtqax8ofcdrc" path="res://levelSelect/assets/tangaraDancarino.jpg" id="5_xieua"]
+[ext_resource type="Texture2D" uid="uid://dqv3j851iu40n" path="res://levelSelect/assets/lock.jpg" id="6_lr5va"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmsvn"]
+size = Vector2(591, 203)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hcn63"]
+font_size = 22
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcn63"]
+size = Vector2(990, 248.571)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q4fc6"]
+font_size = 39
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_gmxw2"]
+font_size = 64
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="levelSelect" type="Node2D"]
+script = ExtResource("1_hcn63")
+
+[node name="Stage" type="Sprite2D" parent="."]
+position = Vector2(992, 582)
+scale = Vector2(3.71944, 3.71944)
+texture = ExtResource("1_pmsvn")
+
+[node name="Branch" type="Sprite2D" parent="."]
+position = Vector2(1139, 770)
+rotation = 0.0776507
+scale = Vector2(0.720371, 0.44)
+texture = ExtResource("2_hcn63")
+
+[node name="Branch2" type="Sprite2D" parent="."]
+position = Vector2(922, 418)
+scale = Vector2(0.333467, 0.431196)
+texture = ExtResource("3_q4fc6")
+
+[node name="TangaraCabeca-de-ouro" type="Sprite2D" parent="."]
+position = Vector2(584, 448)
+texture = ExtResource("4_gmxw2")
+
+[node name="Area2D" type="Area2D" parent="TangaraCabeca-de-ouro"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TangaraCabeca-de-ouro/Area2D"]
+position = Vector2(-166.5, -0.5)
+shape = SubResource("RectangleShape2D_pmsvn")
+
+[node name="name" type="Label" parent="TangaraCabeca-de-ouro"]
+offset_left = -129.0
+offset_top = 110.0
+offset_right = 127.0
+offset_bottom = 141.0
+text = "Tangará cabeca-de-ouro"
+label_settings = SubResource("LabelSettings_hcn63")
+
+[node name="VBoxContainer" type="CenterContainer" parent="TangaraCabeca-de-ouro"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+offset_left = -429.0
+offset_top = -100.0
+offset_right = -145.0
+offset_bottom = 98.0
+
+[node name="Button" type="Button" parent="TangaraCabeca-de-ouro/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "iniciar"
+
+[node name="TangaraDancarino" type="Sprite2D" parent="."]
+position = Vector2(1257, 754)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_xieua")
+
+[node name="Area2D" type="Area2D" parent="TangaraDancarino"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TangaraDancarino/Area2D"]
+position = Vector2(292.143, -1.42859)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_hcn63")
+
+[node name="name" type="Label" parent="TangaraDancarino"]
+offset_left = -174.286
+offset_top = 128.571
+offset_right = 182.714
+offset_bottom = 182.571
+text = "Tangará Dancarino"
+label_settings = SubResource("LabelSettings_q4fc6")
+
+[node name="VBoxContainer" type="CenterContainer" parent="TangaraDancarino"]
+visible = false
+custom_minimum_size = Vector2(64, 64)
+offset_left = 227.143
+offset_top = -91.4286
+offset_right = 511.143
+offset_bottom = 106.571
+
+[node name="Button" type="Button" parent="TangaraDancarino/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Bloqueado"
+
+[node name="Lock" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.388235)
+position = Vector2(1253, 755)
+scale = Vector2(0.166327, 0.166327)
+texture = ExtResource("6_lr5va")
+
+[node name="title" type="Label" parent="."]
+offset_left = 695.0
+offset_top = 124.0
+offset_right = 1244.0
+offset_bottom = 212.0
+text = "Escolha o pássaro"
+label_settings = SubResource("LabelSettings_gmxw2")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+position_smoothing_enabled = true
+
+[connection signal="mouse_entered" from="TangaraCabeca-de-ouro/Area2D" to="." method="_on_cabeca_de_ouro_mouse_entered"]
+[connection signal="mouse_exited" from="TangaraCabeca-de-ouro/Area2D" to="." method="_on_cabeca_de_ouro_mouse_exited"]
+[connection signal="mouse_entered" from="TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_entered"]
+[connection signal="mouse_exited" from="TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_exited"]
