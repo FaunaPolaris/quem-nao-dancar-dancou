@@ -1,33 +1,33 @@
-[gd_scene load_steps=17 format=3 uid="uid://7t6gjyxgshnk"]
+[gd_scene load_steps=31 format=3 uid="uid://7t6gjyxgshnk"]
 
 [ext_resource type="Script" uid="uid://b0v8ighdy3ybo" path="res://levelSelect/levelSelect.gd" id="1_hcn63"]
-[ext_resource type="Texture2D" uid="uid://w62rfgkmj2n7" path="res://levelSelect/assets/stage.jpg" id="1_pmsvn"]
-[ext_resource type="Texture2D" uid="uid://da4oi3b52er4b" path="res://Shared/assets/branch.png" id="2_hcn63"]
-[ext_resource type="Texture2D" uid="uid://b8k2hhidci1gp" path="res://levelSelect/assets/branch2.png" id="3_q4fc6"]
-[ext_resource type="Texture2D" uid="uid://bqk782u2whkw2" path="res://Shared/assets/tangaraCabeca-de-ouro.jpeg" id="4_gmxw2"]
+[ext_resource type="Texture2D" uid="uid://c1h2lw2e8nj31" path="res://levelSelect/assets/background_menu_fundoverde.png" id="2_gmxw2"]
+[ext_resource type="Texture2D" uid="uid://6iirxdt5xlqg" path="res://levelSelect/assets/background_menu_arvore.png" id="3_xieua"]
+[ext_resource type="Texture2D" uid="uid://d3r782heys5v5" path="res://levelSelect/assets/background_menu_cortina.png" id="4_lr5va"]
+[ext_resource type="Texture2D" uid="uid://dmh7g80ko6hin" path="res://levelSelect/assets/background_menu_galhos.png" id="5_7ntnu"]
 [ext_resource type="Texture2D" uid="uid://cvtqax8ofcdrc" path="res://Shared/assets/tangaraDancarino.jpg" id="5_xieua"]
+[ext_resource type="FontFile" uid="uid://edafsmx010lx" path="res://Shared/font/Sour_Gummy/static/SourGummy-Bold.ttf" id="6_os0ik"]
 [ext_resource type="Shader" uid="uid://bcc3ymfw0urw5" path="res://Shared/shader/godRay.gdshader" id="6_q4fc6"]
+[ext_resource type="FontFile" uid="uid://gvbhd4h8hnys" path="res://Shared/font/Sour_Gummy/static/SourGummy_SemiExpanded-MediumItalic.ttf" id="7_2rl2q"]
+[ext_resource type="StyleBox" uid="uid://clrqgvos1we4r" path="res://levelSelect/resources/scoreBoard.tres" id="8_os0ik"]
+[ext_resource type="FontFile" uid="uid://b0qrr2g3y806y" path="res://Shared/font/Sour_Gummy/static/SourGummy-Regular.ttf" id="9_3n1rp"]
+[ext_resource type="FontFile" uid="uid://x4acwt6ufigu" path="res://Shared/font/Sour_Gummy/static/SourGummy-LightItalic.ttf" id="10_ybgj6"]
+[ext_resource type="Shader" uid="uid://blnovamqaoevw" path="res://levelSelect/shader/outline.gdshader" id="12_3n1rp"]
+[ext_resource type="Texture2D" uid="uid://8f8b7osf0sfl" path="res://levelSelect/assets/tancabeca_menu.png" id="12_os0ik"]
+[ext_resource type="FontFile" uid="uid://cj8fqv5peabgs" path="res://Shared/font/Sour_Gummy/static/SourGummy_Expanded-ExtraBold.ttf" id="14_3n1rp"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmsvn"]
-size = Vector2(591, 235)
+[sub_resource type="Gradient" id="Gradient_3n1rp"]
+offsets = PackedFloat32Array(0.0584416, 1)
+colors = PackedColorArray(0, 0, 0, 0.564706, 1, 1, 1, 0)
 
-[sub_resource type="LabelSettings" id="LabelSettings_hcn63"]
-font_size = 22
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
-
-[sub_resource type="Theme" id="Theme_hcn63"]
-Button/font_sizes/font_size = 48
-
-[sub_resource type="LabelSettings" id="LabelSettings_xieua"]
-font_size = 64
-
-[sub_resource type="LabelSettings" id="LabelSettings_lr5va"]
-font_size = 26
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ybgj6"]
+gradient = SubResource("Gradient_3n1rp")
+fill_from = Vector2(0.518349, 1)
+fill_to = Vector2(0.53211, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gmxw2"]
 shader = ExtResource("6_q4fc6")
-shader_parameter/angle = -0.3
+shader_parameter/angle = -0.065
 shader_parameter/position = -0.2
 shader_parameter/speed = 1.0
 shader_parameter/ray1_density = 8.0
@@ -44,178 +44,272 @@ shader_parameter/brightness = 1.0
 shader_parameter/contrast = 0.18
 shader_parameter/blend_mode = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcn63"]
-size = Vector2(990, 248.571)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pmsvn"]
+size = Vector2(1045, 1083)
 
-[sub_resource type="LabelSettings" id="LabelSettings_q4fc6"]
-font_size = 39
+[sub_resource type="LabelSettings" id="LabelSettings_xieua"]
+font = ExtResource("9_3n1rp")
+font_size = 64
+font_color = Color(0.823529, 0.313726, 0.313726, 1)
+shadow_size = 9
+shadow_color = Color(0, 0.247059, 0, 0.356863)
+shadow_offset = Vector2(4, 4)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lr5va"]
+line_spacing = 1.0
+font = ExtResource("10_ybgj6")
+font_size = 26
+outline_size = 2
+outline_color = Color(0.823529, 0.313726, 0.313726, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hcn63"]
+line_spacing = -16.0
+font = ExtResource("6_os0ik")
+font_size = 48
+font_color = Color(0.823529, 0.313726, 0.313726, 1)
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_os0ik"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3n1rp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ybgj6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wjieo"]
+
+[sub_resource type="Theme" id="Theme_hcn63"]
+Button/colors/font_color = Color(0.823529, 0.313726, 0.313726, 1)
+Button/font_sizes/font_size = 48
+Button/fonts/font = ExtResource("7_2rl2q")
+Button/styles/focus = SubResource("StyleBoxEmpty_os0ik")
+Button/styles/hover = SubResource("StyleBoxEmpty_3n1rp")
+Button/styles/normal = SubResource("StyleBoxEmpty_ybgj6")
+Button/styles/pressed = SubResource("StyleBoxEmpty_wjieo")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybgj6"]
+shader = ExtResource("12_3n1rp")
+shader_parameter/clr = Color(0, 0, 0, 1)
+shader_parameter/type = 2
+shader_parameter/thickness = 5.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_gmxw2"]
+font = ExtResource("14_3n1rp")
 font_size = 64
+font_color = Color(0.823529, 0.313726, 0.313726, 1)
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
+shadow_size = 8
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(1, 8)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xieua"]
+shader = ExtResource("6_q4fc6")
+shader_parameter/angle = 0.1
+shader_parameter/position = 0.125
+shader_parameter/speed = 2.545
+shader_parameter/ray1_density = 46.835
+shader_parameter/ray2_density = 30.0
+shader_parameter/hdr = false
+shader_parameter/seed = 5.0
+shader_parameter/spread = 0.59
+shader_parameter/cutoff = 0.0
+shader_parameter/falloff = 1.0
+shader_parameter/edge_fade = 1.0
+shader_parameter/ray2_intensity = 0.0
+shader_parameter/godray_color = Vector4(255, 255, 255, 2)
+shader_parameter/brightness = 0.23
+shader_parameter/contrast = 0.47
+shader_parameter/blend_mode = 0
 
 [node name="levelSelect" type="Node2D"]
 script = ExtResource("1_hcn63")
 
-[node name="Stage" type="Sprite2D" parent="."]
-position = Vector2(992, 582)
-scale = Vector2(3.71944, 3.71944)
-texture = ExtResource("1_pmsvn")
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="Branch" type="Sprite2D" parent="."]
-position = Vector2(1139, 770)
-rotation = 0.0776507
-scale = Vector2(0.720371, 0.44)
-texture = ExtResource("2_hcn63")
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
 
-[node name="Branch2" type="Sprite2D" parent="."]
-position = Vector2(922, 418)
-scale = Vector2(0.333467, 0.431196)
-texture = ExtResource("3_q4fc6")
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-330, -148)
+texture = ExtResource("2_gmxw2")
+centered = false
 
-[node name="TangaraCabeca-encarnada" type="Sprite2D" parent="."]
-position = Vector2(584, 448)
-texture = ExtResource("4_gmxw2")
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, 45)
+motion_scale = Vector2(0.4, 0.4)
 
-[node name="Area2D" type="Area2D" parent="TangaraCabeca-encarnada"]
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(-64, -44)
+texture = ExtResource("5_7ntnu")
+centered = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TangaraCabeca-encarnada/Area2D"]
-position = Vector2(-166.5, 15.5)
-shape = SubResource("RectangleShape2D_pmsvn")
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(962, 515)
+scale = Vector2(30.7606, 17.4019)
+texture = SubResource("GradientTexture2D_ybgj6")
 
-[node name="name" type="Label" parent="TangaraCabeca-encarnada"]
-offset_left = -143.0
-offset_top = 106.0
-offset_right = 142.0
-offset_bottom = 137.0
-text = "Tangará cabeca-encarnada"
-label_settings = SubResource("LabelSettings_hcn63")
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TangaraCabeca-encarnada"]
-visible = false
-custom_minimum_size = Vector2(64, 64)
-offset_left = -457.0
-offset_top = -61.0
-offset_right = -132.0
-offset_bottom = 137.0
-theme = SubResource("Theme_hcn63")
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(-385, -131)
+texture = ExtResource("3_xieua")
+centered = false
 
-[node name="play" type="Button" parent="TangaraCabeca-encarnada/VBoxContainer"]
-layout_mode = 2
-text = "jogar"
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
 
-[node name="tutorial" type="Button" parent="TangaraCabeca-encarnada/VBoxContainer"]
-layout_mode = 2
-text = "tutorial"
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(-16, -103)
+texture = ExtResource("4_lr5va")
+centered = false
 
-[node name="ScoreBoard" type="Panel" parent="TangaraCabeca-encarnada"]
-visible = false
-offset_left = -455.0
-offset_top = 135.0
-offset_right = 125.0
-offset_bottom = 571.0
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.45, 0.45)
 
-[node name="VBox" type="VBoxContainer" parent="TangaraCabeca-encarnada/ScoreBoard"]
-layout_mode = 0
-offset_right = 577.0
-offset_bottom = 424.0
+[node name="TangaraCabeca-encarnada" type="Node2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(640, 448)
 
-[node name="title" type="Label" parent="TangaraCabeca-encarnada/ScoreBoard/VBox"]
-layout_mode = 2
-text = "Placar:"
-label_settings = SubResource("LabelSettings_xieua")
-
-[node name="Scores" type="Label" parent="TangaraCabeca-encarnada/ScoreBoard/VBox"]
-layout_mode = 2
-text = "1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-"
-label_settings = SubResource("LabelSettings_lr5va")
-vertical_alignment = 1
-clip_text = true
-max_lines_visible = 9
-
-[node name="spotlight" type="ColorRect" parent="TangaraCabeca-encarnada"]
+[node name="spotlight" type="ColorRect" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada"]
 visible = false
 material = SubResource("ShaderMaterial_gmxw2")
 offset_left = -590.0
 offset_top = -760.0
 offset_right = 247.0
 offset_bottom = 43.0
+mouse_filter = 2
 
-[node name="TangaraDancarino" type="Sprite2D" parent="."]
-position = Vector2(1257, 754)
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("5_xieua")
+[node name="Area2D" type="Area2D" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada"]
 
-[node name="Area2D" type="Area2D" parent="TangaraDancarino"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada/Area2D"]
+position = Vector2(-320, 80)
+shape = SubResource("RectangleShape2D_pmsvn")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TangaraDancarino/Area2D"]
-position = Vector2(292.143, -1.42859)
-shape = SubResource("RectangleShape2D_hcn63")
+[node name="ScoreBoard" type="Panel" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada"]
+offset_left = -526.0
+offset_top = -21.0
+offset_right = -202.0
+offset_bottom = 415.0
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("8_os0ik")
 
-[node name="name" type="Label" parent="TangaraDancarino"]
-offset_left = -174.286
-offset_top = 128.571
-offset_right = 182.714
-offset_bottom = 182.571
-text = "Tangará Dancarino"
-label_settings = SubResource("LabelSettings_q4fc6")
+[node name="VBox" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada/ScoreBoard"]
+layout_mode = 0
+offset_right = 327.0
+offset_bottom = 424.0
 
-[node name="spotlight" type="ColorRect" parent="TangaraDancarino"]
-visible = false
-material = SubResource("ShaderMaterial_gmxw2")
-offset_left = -624.0
-offset_top = -1226.0
-offset_right = 247.0
-offset_bottom = 23.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="TangaraDancarino"]
-visible = false
-custom_minimum_size = Vector2(64, 64)
-offset_left = 227.143
-offset_top = -91.4286
-offset_right = 568.143
-offset_bottom = 106.571
-
-[node name="play" type="Button" parent="TangaraDancarino/VBoxContainer"]
+[node name="title" type="Label" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada/ScoreBoard/VBox"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+text = "Placar:"
+label_settings = SubResource("LabelSettings_xieua")
+horizontal_alignment = 1
+
+[node name="Scores" type="Label" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada/ScoreBoard/VBox"]
+layout_mode = 2
+text = "1.test
+2.test
+3.test
+4.
+5.
+6.
+7.
+8.
+9.
+"
+label_settings = SubResource("LabelSettings_lr5va")
+vertical_alignment = 1
+clip_text = true
+max_lines_visible = 9
+
+[node name="name" type="Label" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada"]
+offset_left = -498.0
+offset_top = -170.0
+offset_right = -243.0
+offset_bottom = 15.0
+text = "cabeca
+encarnada"
+label_settings = SubResource("LabelSettings_hcn63")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada"]
+custom_minimum_size = Vector2(64, 64)
+offset_left = -209.0
+offset_top = -129.0
+offset_right = 104.0
+offset_bottom = 69.0
+scale = Vector2(1.27172, 2.07298)
+theme = SubResource("Theme_hcn63")
+
+[node name="play" type="Button" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada/VBoxContainer"]
+custom_minimum_size = Vector2(128, 200)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada"]
+material = SubResource("ShaderMaterial_ybgj6")
+position = Vector2(-18, 56)
+scale = Vector2(0.834821, 0.834821)
+texture = ExtResource("12_os0ik")
+flip_h = true
+
+[node name="TangaraDancarino" type="Node2D" parent="ParallaxBackground/ParallaxLayer5"]
+position = Vector2(1737, 452)
+
+[node name="Area2D" type="Area2D" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino/Area2D"]
+position = Vector2(-119.5, 90.5)
+shape = SubResource("RectangleShape2D_pmsvn")
+
+[node name="name" type="Label" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino"]
+offset_left = -516.0
+offset_top = -217.0
+offset_right = 71.0
+offset_bottom = -48.0
+text = "Tangará 
+Dancarino"
+label_settings = SubResource("LabelSettings_hcn63")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino"]
+custom_minimum_size = Vector2(64, 64)
+offset_left = -249.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 182.0
+theme = SubResource("Theme_hcn63")
+
+[node name="play" type="Button" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
 text = "jogar"
 
-[node name="tutorial" type="Button" parent="TangaraDancarino/VBoxContainer"]
+[node name="tutorial" type="Button" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
+mouse_filter = 1
 text = "tutorial"
 
-[node name="ScoreBoard" type="Panel" parent="TangaraDancarino"]
-visible = false
-offset_left = -207.0
-offset_top = -584.0
-offset_right = 573.0
-offset_bottom = -148.0
+[node name="ScoreBoard" type="Panel" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino"]
+offset_left = -512.0
+offset_top = 188.0
+offset_right = 68.0
+offset_bottom = 624.0
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("8_os0ik")
 
-[node name="VBox" type="VBoxContainer" parent="TangaraDancarino/ScoreBoard"]
+[node name="VBox" type="VBoxContainer" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino/ScoreBoard"]
 layout_mode = 0
 offset_right = 577.0
 offset_bottom = 424.0
 
-[node name="title" type="Label" parent="TangaraDancarino/ScoreBoard/VBox"]
+[node name="title" type="Label" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino/ScoreBoard/VBox"]
 layout_mode = 2
 text = "Placar:"
 label_settings = SubResource("LabelSettings_xieua")
+horizontal_alignment = 1
 
-[node name="Scores" type="Label" parent="TangaraDancarino/ScoreBoard/VBox"]
+[node name="Scores" type="Label" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino/ScoreBoard/VBox"]
 layout_mode = 2
 text = "1.
 2.
@@ -232,21 +326,49 @@ vertical_alignment = 1
 clip_text = true
 max_lines_visible = 9
 
+[node name="spotlight" type="ColorRect" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino"]
+visible = false
+material = SubResource("ShaderMaterial_gmxw2")
+offset_left = -590.0
+offset_top = -760.0
+offset_right = 247.0
+offset_bottom = 43.0
+mouse_filter = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino"]
+position = Vector2(-391, 57)
+scale = Vector2(0.6495, 0.704)
+texture = ExtResource("5_xieua")
+
 [node name="title" type="Label" parent="."]
-offset_left = 695.0
-offset_top = 124.0
-offset_right = 1244.0
-offset_bottom = 212.0
-text = "Escolha o pássaro"
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 499.0
+offset_top = 19.0
+offset_right = 1422.0
+offset_bottom = 107.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(307, 44)
+text = "Escolha seu tangará"
 label_settings = SubResource("LabelSettings_gmxw2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_xieua")
+offset_left = -169.0
+offset_top = -195.0
+offset_right = 2245.0
+offset_bottom = 619.0
+mouse_filter = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 position_smoothing_enabled = true
 
-[connection signal="mouse_entered" from="TangaraCabeca-encarnada/Area2D" to="." method="_on_cabeca_encarnada_mouse_entered"]
-[connection signal="mouse_exited" from="TangaraCabeca-encarnada/Area2D" to="." method="_on_cabeca_encarnada_mouse_exited"]
-[connection signal="pressed" from="TangaraCabeca-encarnada/VBoxContainer/play" to="." method="_on_cabeca_encarnada_pressed"]
-[connection signal="mouse_entered" from="TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_entered"]
-[connection signal="mouse_exited" from="TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_exited"]
-[connection signal="pressed" from="TangaraDancarino/VBoxContainer/play" to="." method="_on_dancarino_pressed"]
+[connection signal="mouse_entered" from="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada/Area2D" to="." method="_on_cabeca_encarnada_mouse_entered"]
+[connection signal="mouse_exited" from="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada/Area2D" to="." method="_on_cabeca_encarnada_mouse_exited"]
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada/VBoxContainer/play" to="." method="_on_cabeca_encarnada_pressed"]
+[connection signal="mouse_entered" from="ParallaxBackground/ParallaxLayer5/TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_entered"]
+[connection signal="mouse_exited" from="ParallaxBackground/ParallaxLayer5/TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_exited"]
+[connection signal="pressed" from="ParallaxBackground/ParallaxLayer5/TangaraDancarino/VBoxContainer/play" to="." method="_on_dancarino_pressed"]

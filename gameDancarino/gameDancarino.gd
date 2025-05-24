@@ -6,7 +6,7 @@ var is_waiting	: bool = false
 var	note_type	: String
 
 func	_process(_delta):
-	$points.set_text("".join(PackedStringArray(["pontos: ", PlayerInfo.score, "0000"])))
+	$points.set_text("".join(PackedStringArray(["pontos: ", PlayerInfo.score])))
 	if note_queue.size() > 0 and !is_waiting:
 		is_waiting = true
 		spawnNote(note_queue[0][0], note_queue[0][1])
@@ -21,7 +21,7 @@ func _on_point_spawn_timeout() -> void:
 	var note_scene = load("res://gameDancarino/note/note.tscn")
 	var new_note = note_scene.instantiate()
 	new_note.type = note_type
-	new_note.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
+	new_note.position = Vector2(1720, 880)
 	new_note.pop_up.connect(_pop_it)
 	note_queue.pop_front()
 	add_child(new_note)

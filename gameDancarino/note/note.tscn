@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnksv5r3ellbr"]
+[gd_scene load_steps=12 format=3 uid="uid://cnksv5r3ellbr"]
 
 [ext_resource type="Script" uid="uid://2lhtgmq35sfa" path="res://gameDancarino/note/note.gd" id="1_vc1dw"]
 [ext_resource type="Shader" uid="uid://mfx8562fxuso" path="res://saveScore/Shader/radialLight.gdshader" id="2_wqe6w"]
@@ -72,7 +72,10 @@ _data = {
 &"decaying": SubResource("Animation_ctjkv")
 }
 
-[node name="note" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ctjkv"]
+
+[node name="note" type="RigidBody2D"]
+gravity_scale = -3.0
 script = ExtResource("1_vc1dw")
 
 [node name="lifespan" type="Timer" parent="."]
@@ -84,6 +87,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_qddas")
 custom_minimum_size = Vector2(128, 128)
 offset_left = -66.0
@@ -111,6 +115,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_hqr5v")
 }
 autoplay = "decaying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ctjkv")
 
 [connection signal="timeout" from="lifespan" to="." method="_on_lifespan_timeout"]
 [connection signal="timeout" from="decay" to="." method="_on_decay_timeout"]
