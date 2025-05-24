@@ -48,25 +48,25 @@ position = Vector2(922, 418)
 scale = Vector2(0.333467, 0.431196)
 texture = ExtResource("3_q4fc6")
 
-[node name="TangaraCabeca-de-ouro" type="Sprite2D" parent="."]
+[node name="TangaraCabeca-encarnada" type="Sprite2D" parent="."]
 position = Vector2(584, 448)
 texture = ExtResource("4_gmxw2")
 
-[node name="Area2D" type="Area2D" parent="TangaraCabeca-de-ouro"]
+[node name="Area2D" type="Area2D" parent="TangaraCabeca-encarnada"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TangaraCabeca-de-ouro/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TangaraCabeca-encarnada/Area2D"]
 position = Vector2(-166.5, -0.5)
 shape = SubResource("RectangleShape2D_pmsvn")
 
-[node name="name" type="Label" parent="TangaraCabeca-de-ouro"]
-offset_left = -129.0
-offset_top = 110.0
-offset_right = 127.0
-offset_bottom = 141.0
-text = "Tangará cabeca-de-ouro"
+[node name="name" type="Label" parent="TangaraCabeca-encarnada"]
+offset_left = -143.0
+offset_top = 106.0
+offset_right = 142.0
+offset_bottom = 137.0
+text = "Tangará cabeca-encarnada"
 label_settings = SubResource("LabelSettings_hcn63")
 
-[node name="VBoxContainer" type="CenterContainer" parent="TangaraCabeca-de-ouro"]
+[node name="VBoxContainer" type="CenterContainer" parent="TangaraCabeca-encarnada"]
 visible = false
 custom_minimum_size = Vector2(64, 64)
 offset_left = -429.0
@@ -74,7 +74,7 @@ offset_top = -100.0
 offset_right = -145.0
 offset_bottom = 98.0
 
-[node name="Button" type="Button" parent="TangaraCabeca-de-ouro/VBoxContainer"]
+[node name="Button" type="Button" parent="TangaraCabeca-encarnada/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "iniciar"
@@ -130,7 +130,7 @@ label_settings = SubResource("LabelSettings_gmxw2")
 position = Vector2(960, 540)
 position_smoothing_enabled = true
 
-[connection signal="mouse_entered" from="TangaraCabeca-de-ouro/Area2D" to="." method="_on_cabeca_de_ouro_mouse_entered"]
-[connection signal="mouse_exited" from="TangaraCabeca-de-ouro/Area2D" to="." method="_on_cabeca_de_ouro_mouse_exited"]
+[connection signal="mouse_entered" from="TangaraCabeca-encarnada/Area2D" to="." method="_on_cabeca_encarnada_mouse_entered"]
+[connection signal="mouse_exited" from="TangaraCabeca-encarnada/Area2D" to="." method="_on_cabeca_encarnada_mouse_exited"]
 [connection signal="mouse_entered" from="TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_entered"]
 [connection signal="mouse_exited" from="TangaraDancarino/Area2D" to="." method="_on_dancarino_mouse_exited"]
