@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1h2lw2e8nj31"
-path="res://.godot/imported/background_menu_fundoverde.png-76059ada6ec760bccd5363c16e4fff2f.ctex"
+uid="uid://ypoyd5ekeh1g"
+path="res://.godot/imported/dancarinoFem.jpeg-973b52485035f96f73e4f4b5977d657f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levelSelect/assets/background_menu_fundoverde.png"
-dest_files=["res://.godot/imported/background_menu_fundoverde.png-76059ada6ec760bccd5363c16e4fff2f.ctex"]
+source_file="res://gameDancarino/assets/dancarinoFem.jpeg"
+dest_files=["res://.godot/imported/dancarinoFem.jpeg-973b52485035f96f73e4f4b5977d657f.ctex"]
 
 [params]
 

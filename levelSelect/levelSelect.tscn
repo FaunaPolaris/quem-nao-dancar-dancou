@@ -1,10 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://7t6gjyxgshnk"]
+[gd_scene load_steps=29 format=3 uid="uid://7t6gjyxgshnk"]
 
 [ext_resource type="Script" uid="uid://b0v8ighdy3ybo" path="res://levelSelect/levelSelect.gd" id="1_hcn63"]
-[ext_resource type="Texture2D" uid="uid://c1h2lw2e8nj31" path="res://levelSelect/assets/background_menu_fundoverde.png" id="2_gmxw2"]
+[ext_resource type="Texture2D" uid="uid://c1h2lw2e8nj31" path="res://Shared/assets/background_menu_fundoverde.png" id="2_gmxw2"]
 [ext_resource type="Texture2D" uid="uid://6iirxdt5xlqg" path="res://levelSelect/assets/background_menu_arvore.png" id="3_xieua"]
-[ext_resource type="Texture2D" uid="uid://d3r782heys5v5" path="res://levelSelect/assets/background_menu_cortina.png" id="4_lr5va"]
-[ext_resource type="Texture2D" uid="uid://dmh7g80ko6hin" path="res://levelSelect/assets/background_menu_galhos.png" id="5_7ntnu"]
+[ext_resource type="Texture2D" uid="uid://d3r782heys5v5" path="res://Shared/assets/background_menu_cortina.png" id="4_lr5va"]
+[ext_resource type="Texture2D" uid="uid://dmh7g80ko6hin" path="res://Shared/assets/background_menu_galhos.png" id="5_7ntnu"]
 [ext_resource type="Texture2D" uid="uid://cvtqax8ofcdrc" path="res://Shared/assets/tangaraDancarino.jpg" id="5_xieua"]
 [ext_resource type="FontFile" uid="uid://edafsmx010lx" path="res://Shared/font/Sour_Gummy/static/SourGummy-Bold.ttf" id="6_os0ik"]
 [ext_resource type="Shader" uid="uid://bcc3ymfw0urw5" path="res://Shared/shader/godRay.gdshader" id="6_q4fc6"]
@@ -12,7 +12,6 @@
 [ext_resource type="StyleBox" uid="uid://clrqgvos1we4r" path="res://levelSelect/resources/scoreBoard.tres" id="8_os0ik"]
 [ext_resource type="FontFile" uid="uid://b0qrr2g3y806y" path="res://Shared/font/Sour_Gummy/static/SourGummy-Regular.ttf" id="9_3n1rp"]
 [ext_resource type="FontFile" uid="uid://x4acwt6ufigu" path="res://Shared/font/Sour_Gummy/static/SourGummy-LightItalic.ttf" id="10_ybgj6"]
-[ext_resource type="Shader" uid="uid://blnovamqaoevw" path="res://levelSelect/shader/outline.gdshader" id="12_3n1rp"]
 [ext_resource type="Texture2D" uid="uid://8f8b7osf0sfl" path="res://levelSelect/assets/tancabeca_menu.png" id="12_os0ik"]
 [ext_resource type="FontFile" uid="uid://cj8fqv5peabgs" path="res://Shared/font/Sour_Gummy/static/SourGummy_Expanded-ExtraBold.ttf" id="14_3n1rp"]
 
@@ -86,12 +85,6 @@ Button/styles/focus = SubResource("StyleBoxEmpty_os0ik")
 Button/styles/hover = SubResource("StyleBoxEmpty_3n1rp")
 Button/styles/normal = SubResource("StyleBoxEmpty_ybgj6")
 Button/styles/pressed = SubResource("StyleBoxEmpty_wjieo")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ybgj6"]
-shader = ExtResource("12_3n1rp")
-shader_parameter/clr = Color(0, 0, 0, 1)
-shader_parameter/type = 2
-shader_parameter/thickness = 5.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_gmxw2"]
 font = ExtResource("14_3n1rp")
@@ -247,7 +240,6 @@ layout_mode = 2
 mouse_filter = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada"]
-material = SubResource("ShaderMaterial_ybgj6")
 position = Vector2(-18, 56)
 scale = Vector2(0.834821, 0.834821)
 texture = ExtResource("12_os0ik")

@@ -15,7 +15,7 @@ void fragment()
 		progress_x = 0;
 		progress_y += 1;
 	}
-	
+
     if (abs(progress_x - int(mouse_pos.x)) < circle_radius)
 	{
         COLOR = vec4(0.0);

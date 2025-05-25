@@ -27,19 +27,19 @@ func _on_point_spawn_timeout() -> void:
 	add_child(new_note)
 
 func	_pop_it(accuracy : int):
-	if accuracy == 100:
+	if accuracy > 80:
 		var popup_scene = load("res://gameDancarino/popUp/popUp.tscn")
 		var new_popup = popup_scene.instantiate()
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
 		new_popup.get_node("perfect").show()
 		add_child(new_popup)
-	elif accuracy > 80:
+	elif accuracy > 60:
 		var popup_scene = load("res://gameDancarino/popUp/popUp.tscn")
 		var new_popup = popup_scene.instantiate()
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
 		new_popup.get_node("good").show()
 		add_child(new_popup)
-	elif accuracy > 60:
+	elif accuracy > 40:
 		var popup_scene = load("res://gameDancarino/popUp/popUp.tscn")
 		var new_popup = popup_scene.instantiate()
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))

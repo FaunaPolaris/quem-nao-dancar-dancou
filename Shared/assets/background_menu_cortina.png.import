@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmh7g80ko6hin"
-path="res://.godot/imported/background_menu_galhos.png-07486c6b3fec5ccd16eef70a2b2ec1e5.ctex"
+uid="uid://d3r782heys5v5"
+path="res://.godot/imported/background_menu_cortina.png-025cfad2698116963477d5abac1ae6ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://levelSelect/assets/background_menu_galhos.png"
-dest_files=["res://.godot/imported/background_menu_galhos.png-07486c6b3fec5ccd16eef70a2b2ec1e5.ctex"]
+source_file="res://Shared/assets/background_menu_cortina.png"
+dest_files=["res://.godot/imported/background_menu_cortina.png-025cfad2698116963477d5abac1ae6ff.ctex"]
 
 [params]
 
