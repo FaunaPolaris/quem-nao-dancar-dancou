@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dcf5eto56uwhl"
+path="res://.godot/imported/ambiente menu fora arvore.ogg-24d657d4e956df90a4bde9020c3b3bc3.oggvorbisstr"
+
+[deps]
+
+source_file="res://Shared/sound/ambiente menu fora arvore.ogg"
+dest_files=["res://.godot/imported/ambiente menu fora arvore.ogg-24d657d4e956df90a4bde9020c3b3bc3.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

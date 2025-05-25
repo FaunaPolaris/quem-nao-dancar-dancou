@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cljwopfd6l6hs"
+path="res://.godot/imported/fase 2 select OGG.ogg-705bea3d50820b8423eb5d64630c75cc.oggvorbisstr"
+
+[deps]
+
+source_file="res://Shared/sound/fase 2 select OGG.ogg"
+dest_files=["res://.godot/imported/fase 2 select OGG.ogg-705bea3d50820b8423eb5d64630c75cc.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

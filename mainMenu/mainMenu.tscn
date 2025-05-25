@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn273r77ha3f4"]
+[gd_scene load_steps=9 format=3 uid="uid://dn273r77ha3f4"]
 
 [ext_resource type="Texture2D" uid="uid://r4wj4dvh16im" path="res://mainMenu/assets/treeBackground.jpeg" id="1_6ay73"]
 [ext_resource type="Script" uid="uid://c6gdvjltg18fg" path="res://mainMenu/mainMenu.gd" id="1_b4frg"]
 [ext_resource type="Texture2D" uid="uid://llfvp8igt871" path="res://mainMenu/assets/house.png" id="2_b4frg"]
+[ext_resource type="FontFile" uid="uid://cvyenicim88j7" path="res://Shared/font/Sour_Gummy/static/SourGummy-ExtraBold.ttf" id="4_yobga"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yobga"]
+font = ExtResource("4_yobga")
 font_size = 32
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
@@ -115,7 +117,7 @@ offset_left = 723.0
 offset_top = 916.0
 offset_right = 1086.0
 offset_bottom = 976.0
-text = "pressione para comecar (pisca)"
+text = "pressione para comecar"
 label_settings = SubResource("LabelSettings_yobga")
 
 [node name="transition" type="AnimationPlayer" parent="."]
@@ -129,4 +131,9 @@ offset_bottom = 1088.0
 mouse_filter = 2
 color = Color(0, 0, 0, 0)
 
+[node name="blink" type="Timer" parent="."]
+wait_time = 0.1
+autostart = true
+
 [connection signal="animation_finished" from="transition" to="." method="_on_transition_animation_finished"]
+[connection signal="timeout" from="blink" to="." method="_on_blink_timeout"]
