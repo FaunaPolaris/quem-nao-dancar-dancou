@@ -43,7 +43,8 @@ animations = [{
 script = ExtResource("1_qqvk5")
 
 [node name="BackgroundMenuFundoverde" type="Sprite2D" parent="."]
-position = Vector2(1002, 542)
+position = Vector2(1004, 502)
+scale = Vector2(1.0752, 1.0752)
 texture = ExtResource("2_qqvk5")
 
 [node name="BackgroundMenuCortina" type="Sprite2D" parent="."]

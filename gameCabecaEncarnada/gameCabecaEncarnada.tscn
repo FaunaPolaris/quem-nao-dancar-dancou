@@ -43,7 +43,8 @@ texture = SubResource("GradientTexture2D_ystw2")
 script = ExtResource("1_ssxmp")
 
 [node name="BackgroundMenuFundoverde" type="Sprite2D" parent="."]
-position = Vector2(1002, 542)
+position = Vector2(1041, 517)
+scale = Vector2(1.08767, 1.08767)
 texture = ExtResource("2_vgfbc")
 
 [node name="BackgroundMenuCortina" type="Sprite2D" parent="."]

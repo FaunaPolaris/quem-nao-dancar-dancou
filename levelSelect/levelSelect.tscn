@@ -314,10 +314,10 @@ position = Vector2(-320, 80)
 shape = SubResource("RectangleShape2D_pmsvn")
 
 [node name="ScoreBoard" type="Panel" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada"]
-offset_left = -1372.0
-offset_top = -28.0
-offset_right = -1048.0
-offset_bottom = 408.0
+offset_left = -1000.0
+offset_top = -21.0
+offset_right = -676.0
+offset_bottom = 415.0
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxFlat_ybgj6")
 
