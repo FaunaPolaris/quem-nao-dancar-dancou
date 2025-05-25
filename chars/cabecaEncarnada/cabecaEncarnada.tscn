@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://va4dn8wie4go"]
+[gd_scene load_steps=12 format=3 uid="uid://va4dn8wie4go"]
 
 [ext_resource type="Texture2D" uid="uid://d0rvgsxcnxhbu" path="res://chars/cabecaEncarnada/assets/tancabeca_idle1.png" id="1_mtg3e"]
 [ext_resource type="Texture2D" uid="uid://dy3qphxmid41v" path="res://chars/cabecaEncarnada/assets/tancabeca_idle2.png" id="2_bj5gd"]
@@ -9,8 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dqcfw6uo1j7uj" path="res://chars/cabecaEncarnada/assets/tancabeca_slide4.png" id="6_fcef3"]
 [ext_resource type="Texture2D" uid="uid://gn0ejiaht7ab" path="res://chars/cabecaEncarnada/assets/tancabeca_slide5.png" id="7_et8ol"]
 [ext_resource type="Texture2D" uid="uid://d1ojjmxuc7wms" path="res://chars/cabecaEncarnada/assets/tancabeca_slide6.png" id="8_b2eko"]
-[ext_resource type="Texture2D" uid="uid://c5h6oxyayah76" path="res://chars/cabecaEncarnada/assets/tancabeca_success1.png" id="9_blt7p"]
-[ext_resource type="Texture2D" uid="uid://bd2b2i566bd35" path="res://chars/cabecaEncarnada/assets/tancabeca_success2.png" id="10_ka4x1"]
+[ext_resource type="Texture2D" uid="uid://mwl718onofgn" path="res://chars/cabecaEncarnada/assets/tancabeca_sucess.png" id="9_f1nps"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5502t"]
 animations = [{
@@ -54,11 +53,8 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.6,
-"texture": ExtResource("9_blt7p")
-}, {
-"duration": 0.6,
-"texture": ExtResource("10_ka4x1")
+"duration": 1.3,
+"texture": ExtResource("9_f1nps")
 }],
 "loop": false,
 "name": &"success",

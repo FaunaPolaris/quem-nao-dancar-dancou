@@ -21,7 +21,7 @@ interpolation_mode = 2
 offsets = PackedFloat32Array(0.221311, 0.57377, 0.762295)
 colors = PackedColorArray(0.960784, 0.760784, 0, 0.537255, 0.678431, 0.803922, 0.580392, 0.580392, 1, 1, 1, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_ystw2"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wqe6w"]
 gradient = SubResource("Gradient_bw6pd")
 width = 128
 height = 128
@@ -29,7 +29,7 @@ fill = 1
 fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_26vcf"]
-texture = SubResource("GradientTexture2D_ystw2")
+texture = SubResource("GradientTexture2D_wqe6w")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ctjkv"]
 line_spacing = 0.0
@@ -89,13 +89,12 @@ wait_time = 0.1
 autostart = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_qddas")
 custom_minimum_size = Vector2(128, 128)
-offset_left = -66.0
+offset_left = -63.0
 offset_top = -58.0
 offset_right = 193.0
-offset_bottom = 181.0
+offset_bottom = 198.0
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(32, 32)

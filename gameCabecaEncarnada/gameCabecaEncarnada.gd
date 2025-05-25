@@ -1,16 +1,19 @@
 extends Node2D
 
-# Nodes
 @onready var bird = $CabecaEncarnada
 @onready var music = $AudioStreamPlayer
+@onready var hit_ring = $ColorRect2
+@onready var cue_circle = $Panel
 
-# Movement settings
 @export var left_bound: float = 300.0
 @export var right_bound: float = 1620.0
 @export var base_speed: float = 150.0
-@export var hit_window: float = 0.2  # 150ms window for perfect hits
+@export var hit_window: float = 0.2
 
-# Game state
+@export var cue_duration := 0.5  # Time it takes for the cue to reach the ring
+@export var cue_start_y := 900.0
+@export var cue_end_y := 400.0  # Should match hit_ring.y position
+
 var current_speed: float = 0.0
 var note_times: Array = []
 var current_note_index: int = 0
@@ -18,12 +21,13 @@ var can_hit: bool = false
 var is_moving_right: bool = true
 var current_anim: String = "slide_right"
 
+var cue_active := false
+var cue_start_time := -1.0
+
 func _ready():
-	# Initialize game
 	load_note_data("res://gameCabecaEncarnada/assets/cabecaEncarnadaNotes.json")
 	reset_game_state()
-	
-	# Start music and movement
+
 	music.play()
 	start_movement()
 
@@ -39,6 +43,9 @@ func reset_game_state():
 	current_note_index = 0
 	can_hit = false
 
+	cue_circle.visible = false
+	cue_circle.position.y = cue_start_y
+
 func load_note_data(path: String):
 	var file = FileAccess.open(path, FileAccess.READ)
 	note_times = JSON.parse_string(file.get_as_text()).get("notes", [])
@@ -50,24 +57,42 @@ func start_movement():
 	bird.play(current_anim)
 
 func _process(delta):
+	$points.set_text("".join(PackedStringArray(["pontos: ", PlayerInfo.score])))
+
 	if not music.playing:
 		return
-	
-	# Update bird position
+
 	bird.position.x += current_speed * delta
-	
-	# Boundary checks
 	bird.position.x = clamp(bird.position.x, left_bound, right_bound)
-	
-	# Note timing checks
+
 	if current_note_index < note_times.size():
 		var current_time = music.get_playback_position()
 		var note_time = note_times[current_note_index]
-		
+
+		# Launch the cue before the note
+		if not cue_active and current_time >= note_time - cue_duration:
+			start_cue_animation(note_time)
+
+		# Animate cue rising
+		if cue_active:
+			var t = (current_time - cue_start_time) / cue_duration
+			t = clamp(t, 0, 1)
+			cue_circle.position.y = lerp(cue_start_y, cue_end_y, t)
+
+			if t >= 1.0:
+				cue_active = false
+				cue_start_time = -1.0
+
 		if current_time >= note_time and not can_hit:
 			start_hit_window()
 		elif can_hit and current_time > note_time + hit_window:
 			end_hit_window(false)
+
+func start_cue_animation(target_time: float):
+	cue_active = true
+	cue_start_time = music.get_playback_position()
+	cue_circle.position.y = cue_start_y
+	cue_circle.visible = true
 
 func start_hit_window():
 	can_hit = true
@@ -79,10 +104,12 @@ func end_hit_window(hit_registered: bool):
 		handle_miss()
 	can_hit = false
 	current_note_index += 1
+	cue_circle.visible = false
 
 func _input(event):
 	if event.is_action_pressed("dance"):
 		if can_hit:
+			can_hit = false
 			register_hit()
 		else:
 			handle_missed_input()
@@ -91,24 +118,25 @@ func register_hit():
 	var current_time = music.get_playback_position()
 	var note_time = note_times[current_note_index]
 	var time_diff = abs(current_time - note_time)
-	
-	# Calculate accuracy (0-100 in 10-point steps)
-	var accuracy = int(ceil((1.0 - (time_diff / hit_window)) * 100))
-	accuracy = clamp(accuracy - (accuracy % 10), 0, 100)  # Round down to nearest 10
-	
-	if accuracy > 0:
+
+	if time_diff > hit_window:
+		handle_missed_hit()
+		end_hit_window(true)
+		return
+
+	var accuracy = int(round((1.0 - (time_diff / hit_window)) * 100.0))
+	accuracy = clamp(accuracy - (accuracy % 10), 0, 100)
+
+	if accuracy > 10:
 		handle_hit_success(accuracy)
 	else:
 		handle_missed_hit()
-	
+
 	end_hit_window(true)
 
 func handle_hit_success(accuracy: int):
-	# Update score and streak
 	PlayerInfo.score += accuracy
 	PlayerInfo.streak += 1
-	
-	# Visual feedback
 	bird.play("success")
 	await bird.animation_finished
 	bird.play(current_anim)
@@ -121,6 +149,7 @@ func handle_missed_hit():
 
 func handle_miss():
 	PlayerInfo.streak = 0
+	cue_circle.visible = false
 	#bird.play("miss")
 	#await bird.animation_finished
 	#bird.play(current_anim)

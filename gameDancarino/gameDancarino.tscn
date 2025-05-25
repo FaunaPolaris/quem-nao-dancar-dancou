@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://wmasociacvuy"]
+[gd_scene load_steps=8 format=3 uid="uid://wmasociacvuy"]
 
 [ext_resource type="Script" uid="uid://ditrhi0tiof5g" path="res://gameDancarino/gameDancarino.gd" id="1_qqvk5"]
 [ext_resource type="PackedScene" uid="uid://b20qxhhyj0u7o" path="res://gameDancarino/Individual/individual.tscn" id="2_1s54u"]
@@ -6,13 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://d3r782heys5v5" path="res://Shared/assets/background_menu_cortina.png" id="3_7wqvk"]
 [ext_resource type="Texture2D" uid="uid://dmh7g80ko6hin" path="res://Shared/assets/background_menu_galhos.png" id="3_irmdr"]
 [ext_resource type="Texture2D" uid="uid://ypoyd5ekeh1g" path="res://gameDancarino/assets/dancarinoFem.jpeg" id="6_7wqvk"]
-[ext_resource type="FontFile" uid="uid://cvyenicim88j7" path="res://Shared/font/Sour_Gummy/static/SourGummy-ExtraBold.ttf" id="6_chxhc"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_k5cnh"]
-font = ExtResource("6_chxhc")
-font_size = 96
-outline_size = 16
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="LabelSettings" uid="uid://ctrfkkqyheg2r" path="res://Shared/resources/pointsLabelSetting.tres" id="6_chxhc"]
 
 [node name="gameDancarino" type="Node2D"]
 script = ExtResource("1_qqvk5")
@@ -66,7 +60,7 @@ offset_top = 946.0
 offset_right = 547.0
 offset_bottom = 1078.0
 text = "pontuacao: "
-label_settings = SubResource("LabelSettings_k5cnh")
+label_settings = ExtResource("6_chxhc")
 
 [node name="timeout" type="Timer" parent="."]
 wait_time = 60.0
