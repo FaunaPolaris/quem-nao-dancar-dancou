@@ -9,7 +9,7 @@ signal player_jumping
 
 func _ready():
 	if is_player:
-		$ColorRect.show()
+		self.apply_scale(Vector2(1.2, 1.2))
 
 func _on_timer_timeout() -> void:
 	moveOnQueue()

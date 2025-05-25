@@ -43,7 +43,7 @@ scale = Vector2(0.6, 0.6)
 sprite_frames = SubResource("SpriteFrames_kn5v1")
 animation = &"jump"
 autoplay = "jump"
-frame_progress = 0.654255
+frame_progress = 0.469471
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
