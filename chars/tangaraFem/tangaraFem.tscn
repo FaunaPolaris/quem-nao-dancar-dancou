@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkeag2byod5ya"]
+
+[ext_resource type="Texture2D" uid="uid://docttk7cxy8o4" path="res://chars/tangaraFem/assets/femea3.png" id="1_jtwx5"]
+[ext_resource type="Texture2D" uid="uid://cpjtoetck0m7l" path="res://chars/tangaraFem/assets/femea1.png" id="2_u18ho"]
+[ext_resource type="Texture2D" uid="uid://donemw6a8miww" path="res://chars/tangaraFem/assets/femea2.png" id="3_0vt4p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iu0f"]
+atlas = ExtResource("1_jtwx5")
+region = Rect2(0, 0, 316, 663)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x2nku"]
+atlas = ExtResource("2_u18ho")
+region = Rect2(0, 0, 307, 668)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0bhyh"]
+atlas = ExtResource("3_0vt4p")
+region = Rect2(0, 0, 322, 677)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5j1jl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iu0f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1iu0f")
+}],
+"loop": true,
+"name": &"hate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2nku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x2nku")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bhyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0bhyh")
+}],
+"loop": true,
+"name": &"love",
+"speed": 5.0
+}]
+
+[node name="TangaraFem" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_5j1jl")
+animation = &"hate"

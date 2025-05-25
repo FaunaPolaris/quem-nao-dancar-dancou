@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpu40ahfngviu"]
+
+[ext_resource type="Script" uid="uid://dpbusrc36y2wg" path="res://gameCabecaEncarnada/note2/note_2.gd" id="1_exupt"]
+[ext_resource type="FontFile" uid="uid://cvyenicim88j7" path="res://Shared/font/Sour_Gummy/static/SourGummy-ExtraBold.ttf" id="2_auf0j"]
+
+[sub_resource type="Gradient" id="Gradient_onxca"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.221311, 0.57377, 0.762295)
+colors = PackedColorArray(0.960784, 0.760784, 0, 0.537255, 0.678431, 0.803922, 0.580392, 0.580392, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_wqe6w"]
+gradient = SubResource("Gradient_onxca")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_67oj5"]
+texture = SubResource("GradientTexture2D_wqe6w")
+
+[sub_resource type="LabelSettings" id="LabelSettings_r4dch"]
+line_spacing = 0.0
+font = ExtResource("2_auf0j")
+font_size = 80
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jxcgb"]
+
+[node name="Note2" type="RigidBody2D"]
+gravity_scale = -3.0
+script = ExtResource("1_exupt")
+
+[node name="Panel" type="Panel" parent="."]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 128.0
+offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_67oj5")
+
+[node name="key" type="Label" parent="Panel"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 128.0
+text = "x"
+label_settings = SubResource("LabelSettings_r4dch")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jxcgb")
