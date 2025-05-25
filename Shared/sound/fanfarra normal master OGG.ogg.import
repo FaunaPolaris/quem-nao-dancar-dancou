@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://tn1xm1btsv6e"
+path="res://.godot/imported/fanfarra normal master OGG.ogg-053a8a52b3e5413822964928ee93ee4a.oggvorbisstr"
+
+[deps]
+
+source_file="res://Shared/sound/fanfarra normal master OGG.ogg"
+dest_files=["res://.godot/imported/fanfarra normal master OGG.ogg-053a8a52b3e5413822964928ee93ee4a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

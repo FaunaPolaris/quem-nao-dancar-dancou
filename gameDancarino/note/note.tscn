@@ -89,6 +89,7 @@ wait_time = 0.1
 autostart = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_qddas")
 custom_minimum_size = Vector2(128, 128)
 offset_left = -63.0

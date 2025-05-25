@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d2h4xefnngwmy"
+path="res://.godot/imported/bird menu OGG master.ogg-2a17ac7934fb235d25948d0a2c864795.oggvorbisstr"
+
+[deps]
+
+source_file="res://Shared/sound/bird menu OGG master.ogg"
+dest_files=["res://.godot/imported/bird menu OGG master.ogg-2a17ac7934fb235d25948d0a2c864795.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

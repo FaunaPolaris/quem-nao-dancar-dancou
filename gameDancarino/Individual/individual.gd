@@ -9,7 +9,7 @@ signal player_jumping
 
 func _ready():
 	if is_player:
-		$ColorRect.show()
+		self.apply_scale(Vector2(1.2, 1.2))
 
 func _on_timer_timeout() -> void:
 	moveOnQueue()
@@ -18,6 +18,7 @@ func	moveOnQueue():
 	var	tween : Tween
 	tween = get_tree().create_tween()
 	if queue_position == 5:
+		$art.play("fly")
 		tween.tween_property(self, "global_position", self.global_position + Vector2(100, -200), .2)
 		tween.tween_property(self, "global_position", self.global_position + Vector2(600, -200), .4)
 		tween.tween_property(self, "global_position", positions[0], .2)
@@ -25,7 +26,8 @@ func	moveOnQueue():
 		if is_player:
 			emit_signal("player_flying")
 	else:
-		tween.tween_property(self, "global_position", self.global_position + Vector2(0, -50), .2)
+		$art.play("jump")
+		tween.tween_property(self, "global_position", self.global_position + Vector2(-50, -50), .2)
 		tween.tween_property(self, "global_position", positions[queue_position], .6)
 		queue_position += 1
 		if is_player:

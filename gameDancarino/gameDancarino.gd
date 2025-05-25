@@ -33,23 +33,27 @@ func	_pop_it(accuracy : int):
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
 		new_popup.get_node("perfect").show()
 		add_child(new_popup)
+		$DancarinoFem.play("love")
 	elif accuracy > 60:
 		var popup_scene = load("res://gameDancarino/popUp/popUp.tscn")
 		var new_popup = popup_scene.instantiate()
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
 		new_popup.get_node("good").show()
 		add_child(new_popup)
+		$DancarinoFem.play("default")
 	elif accuracy > 40:
 		var popup_scene = load("res://gameDancarino/popUp/popUp.tscn")
 		var new_popup = popup_scene.instantiate()
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
 		new_popup.get_node("okay").show()
+		$DancarinoFem.play("bad")
 		add_child(new_popup)
 	else:
 		var popup_scene = load("res://gameDancarino/popUp/popUp.tscn")
 		var new_popup = popup_scene.instantiate()
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
 		new_popup.get_node("missed").show()
+		$DancarinoFem.play("bad")
 		add_child(new_popup)
 
 func _on_individual_5_player_flying() -> void:

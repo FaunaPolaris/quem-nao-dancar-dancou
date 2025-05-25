@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://6d4563ihh2fj"
+path="res://.godot/imported/sequencia de pontos varição.ogg-77451f57f9116ffa1bbbc9e5816842e7.oggvorbisstr"
+
+[deps]
+
+source_file="res://Shared/sound/sequencia de pontos varição.ogg"
+dest_files=["res://.godot/imported/sequencia de pontos varição.ogg-77451f57f9116ffa1bbbc9e5816842e7.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

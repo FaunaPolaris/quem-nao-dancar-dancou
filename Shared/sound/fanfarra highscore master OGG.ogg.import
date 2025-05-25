@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bgtjxd1kp5tnp"
+path="res://.godot/imported/fanfarra highscore master OGG.ogg-e00af0083b33c8e163bdd1f6948c7b9f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Shared/sound/fanfarra highscore master OGG.ogg"
+dest_files=["res://.godot/imported/fanfarra highscore master OGG.ogg-e00af0083b33c8e163bdd1f6948c7b9f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
