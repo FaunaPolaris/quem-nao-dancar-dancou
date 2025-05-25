@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddl075n1ubqai"]
+[gd_scene load_steps=12 format=3 uid="uid://ddl075n1ubqai"]
 
-[ext_resource type="Texture2D" uid="uid://bqk782u2whkw2" path="res://Shared/assets/tangaraCabeca-de-ouro.jpeg" id="1_38tm6"]
 [ext_resource type="Script" uid="uid://bc7b7mguxljsy" path="res://saveScore/saveScore.gd" id="1_78qpx"]
 [ext_resource type="Shader" uid="uid://cll87e7ece4gx" path="res://saveScore/Shader/waterNoise.gdshader" id="1_xc2gp"]
-[ext_resource type="Shader" uid="uid://bcc3ymfw0urw5" path="res://saveScore/Shader/godRay.gdshader" id="3_78qpx"]
+[ext_resource type="Shader" uid="uid://bcc3ymfw0urw5" path="res://Shared/shader/godRay.gdshader" id="3_78qpx"]
+[ext_resource type="Texture2D" uid="uid://8f8b7osf0sfl" path="res://levelSelect/assets/tancabeca_menu.png" id="4_tlbik"]
+[ext_resource type="FontFile" uid="uid://cbi0tsk2x7by4" path="res://Shared/font/Sour_Gummy/static/SourGummy-SemiBold.ttf" id="5_tlbik"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_tlbik"]
 noise_type = 0
@@ -49,11 +50,13 @@ shader_parameter/contrast = 0.22
 shader_parameter/blend_mode = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_78qpx"]
+font = ExtResource("5_tlbik")
 font_size = 96
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_xc2gp"]
+font = ExtResource("5_tlbik")
 font_size = 128
 outline_size = 16
 outline_color = Color(0, 0, 0, 1)
@@ -80,8 +83,8 @@ offset_right = 1895.0
 offset_bottom = 1088.0
 
 [node name="selected_bird" type="Sprite2D" parent="."]
-position = Vector2(931, 699)
-texture = ExtResource("1_38tm6")
+position = Vector2(931, 617)
+texture = ExtResource("4_tlbik")
 
 [node name="input_name" type="Label" parent="."]
 offset_left = 461.0

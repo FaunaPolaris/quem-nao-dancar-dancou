@@ -1,0 +1,87 @@
+[gd_scene load_steps=9 format=3 uid="uid://wmasociacvuy"]
+
+[ext_resource type="Script" uid="uid://ditrhi0tiof5g" path="res://gameDancarino/gameDancarino.gd" id="1_qqvk5"]
+[ext_resource type="PackedScene" uid="uid://b20qxhhyj0u7o" path="res://gameDancarino/Individual/individual.tscn" id="2_1s54u"]
+[ext_resource type="Texture2D" uid="uid://c1h2lw2e8nj31" path="res://Shared/assets/background_menu_fundoverde.png" id="2_qqvk5"]
+[ext_resource type="Texture2D" uid="uid://d3r782heys5v5" path="res://Shared/assets/background_menu_cortina.png" id="3_7wqvk"]
+[ext_resource type="Texture2D" uid="uid://dmh7g80ko6hin" path="res://Shared/assets/background_menu_galhos.png" id="3_irmdr"]
+[ext_resource type="Texture2D" uid="uid://ypoyd5ekeh1g" path="res://gameDancarino/assets/dancarinoFem.jpeg" id="6_7wqvk"]
+[ext_resource type="FontFile" uid="uid://cvyenicim88j7" path="res://Shared/font/Sour_Gummy/static/SourGummy-ExtraBold.ttf" id="6_chxhc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_k5cnh"]
+font = ExtResource("6_chxhc")
+font_size = 96
+outline_size = 16
+outline_color = Color(0, 0, 0, 1)
+
+[node name="gameDancarino" type="Node2D"]
+script = ExtResource("1_qqvk5")
+
+[node name="BackgroundMenuFundoverde" type="Sprite2D" parent="."]
+position = Vector2(1002, 542)
+texture = ExtResource("2_qqvk5")
+
+[node name="BackgroundMenuCortina" type="Sprite2D" parent="."]
+position = Vector2(976, 300)
+scale = Vector2(1.19197, 1.19197)
+texture = ExtResource("3_7wqvk")
+
+[node name="BackgroundMenuGalhos" type="Sprite2D" parent="."]
+position = Vector2(943, 609)
+scale = Vector2(1.24818, 1)
+texture = ExtResource("3_irmdr")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.8
+autostart = true
+
+[node name="individuals" type="Node2D" parent="."]
+
+[node name="individual" parent="individuals" instance=ExtResource("2_1s54u")]
+position = Vector2(386, 526)
+queue_position = 5
+
+[node name="individual2" parent="individuals" instance=ExtResource("2_1s54u")]
+position = Vector2(568, 609)
+queue_position = 4
+
+[node name="individual3" parent="individuals" instance=ExtResource("2_1s54u")]
+position = Vector2(809, 602)
+queue_position = 3
+
+[node name="individual4" parent="individuals" instance=ExtResource("2_1s54u")]
+position = Vector2(1032, 535)
+queue_position = 2
+
+[node name="individual5" parent="individuals" instance=ExtResource("2_1s54u")]
+position = Vector2(1266, 398)
+queue_position = 1
+is_player = true
+
+[node name="pointSpawn" type="Timer" parent="."]
+one_shot = true
+
+[node name="points" type="Label" parent="."]
+offset_top = 946.0
+offset_right = 547.0
+offset_bottom = 1078.0
+text = "pontuacao: "
+label_settings = SubResource("LabelSettings_k5cnh")
+
+[node name="timeout" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
+[node name="DancarinoFem" type="Sprite2D" parent="."]
+position = Vector2(1400, 834)
+texture = ExtResource("6_7wqvk")
+
+[connection signal="timeout" from="Timer" to="individuals/individual" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="individuals/individual2" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="individuals/individual3" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="individuals/individual4" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="individuals/individual5" method="_on_timer_timeout"]
+[connection signal="player_flying" from="individuals/individual5" to="." method="_on_individual_5_player_flying"]
+[connection signal="player_jumping" from="individuals/individual5" to="." method="_on_individual_5_player_jumping"]
+[connection signal="timeout" from="pointSpawn" to="." method="_on_point_spawn_timeout"]
+[connection signal="timeout" from="timeout" to="." method="_on_timeout_timeout"]
