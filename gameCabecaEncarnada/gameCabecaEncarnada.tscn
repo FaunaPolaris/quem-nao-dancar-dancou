@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyogfhihv2rc1"]
+[gd_scene load_steps=16 format=3 uid="uid://dyogfhihv2rc1"]
 
 [ext_resource type="Script" uid="uid://bfl5wwg83g7k0" path="res://gameCabecaEncarnada/gameCabecaEncarnada.gd" id="1_ssxmp"]
 [ext_resource type="AudioStream" uid="uid://c1nxhi2iah6ow" path="res://gameCabecaEncarnada/assets/cabecaEncarnadaMusic.ogg" id="2_4g81p"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://dmh7g80ko6hin" path="res://Shared/assets/background_menu_galhos.png" id="4_7v0ql"]
 [ext_resource type="LabelSettings" uid="uid://ctrfkkqyheg2r" path="res://Shared/resources/pointsLabelSetting.tres" id="4_e55vm"]
 [ext_resource type="Shader" uid="uid://mfx8562fxuso" path="res://saveScore/Shader/radialLight.gdshader" id="5_6ifan"]
+[ext_resource type="AudioStream" uid="uid://vk7eooq14g6f" path="res://Shared/sound/sequencia de pontos varição3.ogg" id="10_7v0ql"]
+[ext_resource type="AudioStream" uid="uid://lgbr8m60d1w0" path="res://Shared/sound/542040__rob_marion__gasp_ui_reject.wav" id="11_4uhwy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wny2a"]
 shader = ExtResource("5_6ifan")
@@ -95,3 +97,11 @@ offset_top = 412.0
 offset_right = 1781.0
 offset_bottom = 668.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_vgfbc")
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_7v0ql")
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_4uhwy")
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

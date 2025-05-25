@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddl075n1ubqai"]
+[gd_scene load_steps=19 format=3 uid="uid://ddl075n1ubqai"]
 
 [ext_resource type="Script" uid="uid://bc7b7mguxljsy" path="res://saveScore/saveScore.gd" id="1_78qpx"]
 [ext_resource type="Shader" uid="uid://cll87e7ece4gx" path="res://saveScore/Shader/waterNoise.gdshader" id="1_xc2gp"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://8f8b7osf0sfl" path="res://levelSelect/assets/tancabeca_menu.png" id="4_tlbik"]
 [ext_resource type="Texture2D" uid="uid://cgrso4mp74i1e" path="res://levelSelect/assets/dancarino_menu.png" id="4_ymkyv"]
 [ext_resource type="FontFile" uid="uid://cbi0tsk2x7by4" path="res://Shared/font/Sour_Gummy/static/SourGummy-SemiBold.ttf" id="5_tlbik"]
+[ext_resource type="PackedScene" uid="uid://bkeag2byod5ya" path="res://chars/tangaraFem/tangaraFem.tscn" id="6_qvoa5"]
 [ext_resource type="FontFile" uid="uid://cvyenicim88j7" path="res://Shared/font/Sour_Gummy/static/SourGummy-ExtraBold.ttf" id="7_77way"]
 [ext_resource type="AudioStream" uid="uid://tn1xm1btsv6e" path="res://Shared/sound/fanfarra normal master OGG.ogg" id="8_7jgpq"]
 [ext_resource type="AudioStream" uid="uid://bgtjxd1kp5tnp" path="res://Shared/sound/fanfarra highscore master OGG.ogg" id="9_qvoa5"]
@@ -113,9 +114,12 @@ offset_right = 1895.0
 offset_bottom = 1088.0
 
 [node name="selected_bird" type="AnimatedSprite2D" parent="."]
-position = Vector2(931, 617)
+position = Vector2(770, 617)
 sprite_frames = SubResource("SpriteFrames_77way")
-animation = &"encarnado"
+animation = &"dancarino"
+
+[node name="TangaraFem" parent="." instance=ExtResource("6_qvoa5")]
+position = Vector2(1240, 658)
 
 [node name="input_name" type="Label" parent="."]
 offset_left = 461.0
@@ -146,10 +150,10 @@ max_length = 12
 
 [node name="highscore" type="Label" parent="."]
 custom_minimum_size = Vector2(1920, 64)
-offset_top = 254.0
+offset_top = 233.0
 offset_right = 1920.0
-offset_bottom = 318.0
-text = "maior pontuacao:"
+offset_bottom = 316.0
+text = "maior pontuacao: "
 label_settings = SubResource("LabelSettings_5d426")
 horizontal_alignment = 1
 

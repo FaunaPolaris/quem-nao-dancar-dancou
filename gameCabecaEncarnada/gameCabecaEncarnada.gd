@@ -3,10 +3,12 @@ extends Node2D
 @onready var bird = $CabecaEncarnada
 @onready var birdFem = $TangaraFem
 @onready var music = $AudioStreamPlayer
+@onready var pioFx = $AudioStreamPlayer2
+@onready var errorFx = $AudioStreamPlayer3
 
-@export var left_bound: float = 525.0
+@export var left_bound: float = 530.0
 @export var right_bound: float = 1048.0
-@export var base_speed: float = 150.0
+@export var base_speed: float = 60.0
 @export var hit_window: float = 0.4  
 
 var current_speed: float = 0.0
@@ -29,7 +31,7 @@ func _ready():
 func reset_game_state():
 	PlayerInfo.score = 0
 	PlayerInfo.streak = 0
-	bird.position.x = left_bound
+	bird.position.x = 850
 	bird.position.y = 625
 	current_speed = base_speed
 	current_anim = "slide_right"
@@ -73,10 +75,8 @@ func start_hit_window():
 	is_moving_right = !is_moving_right
 	start_movement()
 
-	if active_note:
-		active_note.queue_free()
 	active_note = note_scene.instantiate()
-	active_note.type = " "  # customize if you add more inputs later
+	active_note.type = " "  
 	active_note.position = Vector2(1720, 880)
 	add_child(active_note)
 
@@ -87,7 +87,6 @@ func end_hit_window(hit_registered: bool):
 	current_note_index += 1
 
 func _input(event):
-	print("INPUT fired on:", self.name, " | can_hit:", can_hit)
 	if event.is_action_pressed("dance"):
 		if can_hit:
 			can_hit = false
@@ -104,28 +103,30 @@ func register_hit():
 	accuracy = clamp(accuracy - fmod(accuracy, 10), 0, 100) 
 	
 	if accuracy > 0:
+		if active_note:
+			active_note.pop(int(accuracy))
+			active_note = null
 		handle_hit_success(accuracy)
 	else:
 		handle_miss()
-
-	if active_note:
-		active_note.pop(int(accuracy))
-		active_note = null
 
 	end_hit_window(true)
 
 func handle_hit_success(accuracy: int):
 	PlayerInfo.score += accuracy
 	PlayerInfo.streak += 1
+	if PlayerInfo.streak > PlayerInfo.bestStreak:
+		PlayerInfo.bestStreak = PlayerInfo.streak
 
 	var popup = popup_scene.instantiate()
 	popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
-	if accuracy > 60:
+	if accuracy > 75:
 		popup.get_node("perfect").show()
+		#if pioFx.is_playing() == false:
+		pioFx.play()
 		birdFem.play("love")
 		await bird.animation_finished
-		birdFem.play("idle")
-	elif accuracy > 30:
+	elif accuracy > 55:
 		popup.get_node("good").show()
 	elif accuracy > 10:
 		popup.get_node("okay").show()
@@ -145,3 +146,8 @@ func handle_miss():
 	
 func handle_miss_input():
 	PlayerInfo.streak = 0
+
+
+func _on_audio_stream_player_finished() -> void:
+	var scoreSave = load("res://saveScore/saveScore.tscn")
+	get_tree().change_scene_to_packed(scoreSave)

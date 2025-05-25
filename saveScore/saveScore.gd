@@ -1,6 +1,7 @@
 extends Node2D
 
 var highscore : int = 0
+@onready var bird = $TangaraFem
 
 func	_ready():
 	$Score.set_text("".join(PackedStringArray([$Score.text, str(PlayerInfo.score)])))
@@ -10,6 +11,10 @@ func	_ready():
 		highscore = ScoreBoard.encarnado[0][0]
 	$selected_bird.play(PlayerInfo.current_bird)
 	$highscore.set_text("".join(PackedStringArray([$highscore.text, str(highscore)])))
+	if PlayerInfo.bestStreak > 15:
+		bird.play("love")
+	else:
+		bird.play("hate")
 	if PlayerInfo.score > highscore:
 		$"new best".play()
 	else:

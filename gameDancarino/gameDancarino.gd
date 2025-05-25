@@ -1,5 +1,6 @@
 extends Node2D
 
+@onready var pioFx = $AudioStreamPlayer2
 var save_score_screen = load("res://saveScore/saveScore.tscn")
 var	note_queue	: Array = []
 var is_waiting	: bool = false
@@ -28,13 +29,16 @@ func _on_point_spawn_timeout() -> void:
 
 func	_pop_it(accuracy : int):
 	if accuracy > 80:
+		PlayerInfo.streak += 1
 		var popup_scene = load("res://gameDancarino/popUp/popUp.tscn")
 		var new_popup = popup_scene.instantiate()
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
+		pioFx.play()
 		new_popup.get_node("perfect").show()
 		add_child(new_popup)
 		$DancarinoFem.play("love")
 	elif accuracy > 60:
+		PlayerInfo.streak += 1
 		var popup_scene = load("res://gameDancarino/popUp/popUp.tscn")
 		var new_popup = popup_scene.instantiate()
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
@@ -42,6 +46,7 @@ func	_pop_it(accuracy : int):
 		add_child(new_popup)
 		$DancarinoFem.play("default")
 	elif accuracy > 40:
+		PlayerInfo.streak += 1
 		var popup_scene = load("res://gameDancarino/popUp/popUp.tscn")
 		var new_popup = popup_scene.instantiate()
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
@@ -49,12 +54,15 @@ func	_pop_it(accuracy : int):
 		$DancarinoFem.play("bad")
 		add_child(new_popup)
 	else:
+		PlayerInfo.streak = 0
 		var popup_scene = load("res://gameDancarino/popUp/popUp.tscn")
 		var new_popup = popup_scene.instantiate()
 		new_popup.position = Vector2(randi_range(200, 1720), randi_range(200, 880))
 		new_popup.get_node("missed").show()
 		$DancarinoFem.play("bad")
 		add_child(new_popup)
+	if PlayerInfo.streak > PlayerInfo.bestStreak:
+		PlayerInfo.bestStreak = PlayerInfo.streak
 
 func _on_individual_5_player_flying() -> void:
 	note_queue.append(["W", .2])
