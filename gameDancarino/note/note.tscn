@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cnksv5r3ellbr"]
+[gd_scene load_steps=13 format=3 uid="uid://cnksv5r3ellbr"]
 
 [ext_resource type="Script" uid="uid://2lhtgmq35sfa" path="res://gameDancarino/note/note.gd" id="1_vc1dw"]
 [ext_resource type="Shader" uid="uid://mfx8562fxuso" path="res://saveScore/Shader/radialLight.gdshader" id="2_wqe6w"]
+[ext_resource type="FontFile" uid="uid://cvyenicim88j7" path="res://Shared/font/Sour_Gummy/static/SourGummy-ExtraBold.ttf" id="3_wqe6w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qddas"]
 shader = ExtResource("2_wqe6w")
@@ -32,6 +33,7 @@ texture = SubResource("GradientTexture2D_ystw2")
 
 [sub_resource type="LabelSettings" id="LabelSettings_ctjkv"]
 line_spacing = 0.0
+font = ExtResource("3_wqe6w")
 font_size = 80
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)

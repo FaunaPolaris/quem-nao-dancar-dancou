@@ -277,11 +277,6 @@ layout_mode = 2
 mouse_filter = 1
 text = "jogar"
 
-[node name="tutorial" type="Button" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino/VBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-text = "tutorial"
-
 [node name="ScoreBoard" type="Panel" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino"]
 offset_left = -512.0
 offset_top = 188.0
