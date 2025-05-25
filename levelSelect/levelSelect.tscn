@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://7t6gjyxgshnk"]
+[gd_scene load_steps=52 format=3 uid="uid://7t6gjyxgshnk"]
 
 [ext_resource type="Script" uid="uid://b0v8ighdy3ybo" path="res://levelSelect/levelSelect.gd" id="1_hcn63"]
 [ext_resource type="Texture2D" uid="uid://c1h2lw2e8nj31" path="res://Shared/assets/background_menu_fundoverde.png" id="2_gmxw2"]
@@ -8,7 +8,6 @@
 [ext_resource type="FontFile" uid="uid://edafsmx010lx" path="res://Shared/font/Sour_Gummy/static/SourGummy-Bold.ttf" id="6_os0ik"]
 [ext_resource type="Shader" uid="uid://bcc3ymfw0urw5" path="res://Shared/shader/godRay.gdshader" id="6_q4fc6"]
 [ext_resource type="FontFile" uid="uid://gvbhd4h8hnys" path="res://Shared/font/Sour_Gummy/static/SourGummy_SemiExpanded-MediumItalic.ttf" id="7_2rl2q"]
-[ext_resource type="StyleBox" uid="uid://clrqgvos1we4r" path="res://levelSelect/resources/scoreBoard.tres" id="8_os0ik"]
 [ext_resource type="FontFile" uid="uid://b0qrr2g3y806y" path="res://Shared/font/Sour_Gummy/static/SourGummy-Regular.ttf" id="9_3n1rp"]
 [ext_resource type="FontFile" uid="uid://x4acwt6ufigu" path="res://Shared/font/Sour_Gummy/static/SourGummy-LightItalic.ttf" id="10_ybgj6"]
 [ext_resource type="Texture2D" uid="uid://8f8b7osf0sfl" path="res://levelSelect/assets/tancabeca_menu.png" id="12_os0ik"]
@@ -48,6 +47,9 @@ shader_parameter/blend_mode = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pmsvn"]
 size = Vector2(1045, 1083)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybgj6"]
+bg_color = Color(0.227451, 0.533333, 0.345098, 0.494118)
 
 [sub_resource type="LabelSettings" id="LabelSettings_hcn63"]
 line_spacing = -16.0
@@ -162,6 +164,9 @@ Button/styles/pressed = SubResource("StyleBoxEmpty_wjieo")
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w5kgr"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m7xjy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wjieo"]
+bg_color = Color(0.226923, 0.534546, 0.344415, 0.494118)
 
 [sub_resource type="Animation" id="Animation_inkgg"]
 length = 0.001
@@ -314,7 +319,7 @@ offset_top = -28.0
 offset_right = -1048.0
 offset_bottom = 408.0
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("8_os0ik")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ybgj6")
 
 [node name="name" type="Label" parent="ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada/ScoreBoard"]
 layout_mode = 0
@@ -413,7 +418,7 @@ offset_top = -153.0
 offset_right = 1307.0
 offset_bottom = 283.0
 mouse_filter = 1
-theme_override_styles/panel = ExtResource("8_os0ik")
+theme_override_styles/panel = SubResource("StyleBoxFlat_wjieo")
 
 [node name="name" type="Label" parent="ParallaxBackground/ParallaxLayer5/TangaraDancarino/ScoreBoard"]
 layout_mode = 0

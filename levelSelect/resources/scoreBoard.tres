@@ -1,9 +1,6 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://clrqgvos1we4r"]
-
-[ext_resource type="Texture2D" uid="uid://c1h2lw2e8nj31" path="res://Shared/assets/background_menu_fundoverde.png" id="1_430pb"]
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://clrqgvos1we4r"]
 
 [resource]
-texture = ExtResource("1_430pb")
 expand_margin_left = 20.0
 expand_margin_top = 60.0
 expand_margin_right = 20.0

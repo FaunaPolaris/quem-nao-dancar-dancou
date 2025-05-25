@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dn273r77ha3f4"]
 
-[ext_resource type="Texture2D" uid="uid://r4wj4dvh16im" path="res://mainMenu/assets/treeBackground.jpeg" id="1_6ay73"]
 [ext_resource type="Script" uid="uid://c6gdvjltg18fg" path="res://mainMenu/mainMenu.gd" id="1_b4frg"]
-[ext_resource type="Texture2D" uid="uid://llfvp8igt871" path="res://mainMenu/assets/house.png" id="2_b4frg"]
+[ext_resource type="Texture2D" uid="uid://cqqnfntkssrba" path="res://mainMenu/assets/background_inicio_ceu.png" id="2_0o04g"]
+[ext_resource type="Texture2D" uid="uid://bx4iteyc5v7mo" path="res://mainMenu/assets/background_inicio_arvore.png" id="3_1dglg"]
 [ext_resource type="FontFile" uid="uid://cvyenicim88j7" path="res://Shared/font/Sour_Gummy/static/SourGummy-ExtraBold.ttf" id="4_yobga"]
 [ext_resource type="AudioStream" uid="uid://dcf5eto56uwhl" path="res://Shared/sound/ambiente menu fora arvore.ogg" id="5_0o04g"]
 
@@ -76,7 +76,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(960, 540), Vector2(900, 730)]
+"values": [Vector2(960, 540), Vector2(888, 805)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -103,15 +103,15 @@ script = ExtResource("1_b4frg")
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.87977, 1.61029)
-texture = ExtResource("1_6ay73")
-centered = false
+[node name="BackgroundInicioCeu" type="Sprite2D" parent="."]
+position = Vector2(943, 542)
+texture = ExtResource("2_0o04g")
 
-[node name="House" type="Sprite2D" parent="."]
-position = Vector2(893, 718)
-scale = Vector2(0.0141878, 0.0159802)
-texture = ExtResource("2_b4frg")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-401, -3)
+scale = Vector2(1.10118, 0.94332)
+texture = ExtResource("3_1dglg")
+centered = false
 
 [node name="Label" type="Label" parent="."]
 offset_left = 723.0
