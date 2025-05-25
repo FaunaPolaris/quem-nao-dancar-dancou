@@ -1,0 +1,73 @@
+[gd_scene load_steps=13 format=3 uid="uid://va4dn8wie4go"]
+
+[ext_resource type="Texture2D" uid="uid://d0rvgsxcnxhbu" path="res://chars/cabecaEncarnada/assets/tancabeca_idle1.png" id="1_mtg3e"]
+[ext_resource type="Texture2D" uid="uid://dy3qphxmid41v" path="res://chars/cabecaEncarnada/assets/tancabeca_idle2.png" id="2_bj5gd"]
+[ext_resource type="Script" uid="uid://bvoq7n57373jj" path="res://chars/cabecaEncarnada/cabecaEncarnada.gd" id="2_xkaj4"]
+[ext_resource type="Texture2D" uid="uid://jih86fwl1xvl" path="res://chars/cabecaEncarnada/assets/tancabeca_slide1.png" id="3_vtanq"]
+[ext_resource type="Texture2D" uid="uid://dkxp8fc4v3ic5" path="res://chars/cabecaEncarnada/assets/tancabeca_slide2.png" id="4_lqn2o"]
+[ext_resource type="Texture2D" uid="uid://bdo6tbdwfasd3" path="res://chars/cabecaEncarnada/assets/tancabeca_slide3.png" id="5_5502t"]
+[ext_resource type="Texture2D" uid="uid://dqcfw6uo1j7uj" path="res://chars/cabecaEncarnada/assets/tancabeca_slide4.png" id="6_fcef3"]
+[ext_resource type="Texture2D" uid="uid://gn0ejiaht7ab" path="res://chars/cabecaEncarnada/assets/tancabeca_slide5.png" id="7_et8ol"]
+[ext_resource type="Texture2D" uid="uid://d1ojjmxuc7wms" path="res://chars/cabecaEncarnada/assets/tancabeca_slide6.png" id="8_b2eko"]
+[ext_resource type="Texture2D" uid="uid://c5h6oxyayah76" path="res://chars/cabecaEncarnada/assets/tancabeca_success1.png" id="9_blt7p"]
+[ext_resource type="Texture2D" uid="uid://bd2b2i566bd35" path="res://chars/cabecaEncarnada/assets/tancabeca_success2.png" id="10_ka4x1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5502t"]
+animations = [{
+"frames": [{
+"duration": 0.3,
+"texture": ExtResource("1_mtg3e")
+}, {
+"duration": 0.3,
+"texture": ExtResource("2_bj5gd")
+}],
+"loop": false,
+"name": &"miss",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vtanq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lqn2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5502t")
+}],
+"loop": true,
+"name": &"slide_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_fcef3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_et8ol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_b2eko")
+}],
+"loop": true,
+"name": &"slide_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.6,
+"texture": ExtResource("9_blt7p")
+}, {
+"duration": 0.6,
+"texture": ExtResource("10_ka4x1")
+}],
+"loop": false,
+"name": &"success",
+"speed": 5.0
+}]
+
+[node name="CabecaEncarnada" type="AnimatedSprite2D"]
+texture_filter = 1
+scale = Vector2(15, 15)
+sprite_frames = SubResource("SpriteFrames_5502t")
+animation = &"success"
+script = ExtResource("2_xkaj4")

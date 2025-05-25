@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu3ilkktavxbx"]
+
+[ext_resource type="Script" uid="uid://d161rhygt1h0e" path="res://chars/tangara/tangara.gd" id="1_du4mj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_454mq"]
+size = Vector2(64, 100)
+
+[node name="Tangara" type="CharacterBody2D"]
+position = Vector2(936, 683)
+script = ExtResource("1_du4mj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(3, 2)
+shape = SubResource("RectangleShape2D_454mq")
