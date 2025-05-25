@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://wmasociacvuy"]
+[gd_scene load_steps=13 format=3 uid="uid://wmasociacvuy"]
 
 [ext_resource type="Script" uid="uid://ditrhi0tiof5g" path="res://gameDancarino/gameDancarino.gd" id="1_qqvk5"]
 [ext_resource type="PackedScene" uid="uid://b20qxhhyj0u7o" path="res://gameDancarino/Individual/individual.tscn" id="2_1s54u"]
@@ -10,6 +10,7 @@
 [ext_resource type="LabelSettings" uid="uid://ctrfkkqyheg2r" path="res://Shared/resources/pointsLabelSetting.tres" id="6_chxhc"]
 [ext_resource type="Texture2D" uid="uid://doq8t3l7knbmj" path="res://gameDancarino/assets/femea2.png" id="6_hlgc1"]
 [ext_resource type="AudioStream" uid="uid://pkxftkngkquh" path="res://Shared/sound/fase 2 OGG master.ogg" id="10_7wfw4"]
+[ext_resource type="AudioStream" uid="uid://vk7eooq14g6f" path="res://Shared/sound/sequencia de pontos varição3.ogg" id="11_hlgc1"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x7vpx"]
 animations = [{
@@ -102,6 +103,9 @@ label_settings = ExtResource("6_chxhc")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_7wfw4")
 autoplay = true
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_hlgc1")
 
 [connection signal="timeout" from="Timer" to="individuals/individual" method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer" to="individuals/individual2" method="_on_timer_timeout"]

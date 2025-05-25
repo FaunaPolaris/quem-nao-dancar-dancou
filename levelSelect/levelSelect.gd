@@ -10,6 +10,8 @@ func	_ready():
 	ScoreBoard.loadTo($"ParallaxBackground/ParallaxLayer5/TangaraCabeca-encarnada/ScoreBoard/VBox/Scores", "encarnado")
 	ScoreBoard.loadTo($"ParallaxBackground/ParallaxLayer5/TangaraDancarino/ScoreBoard/VBox/Scores", "dancarino")
 	PlayerInfo.score = 0
+	PlayerInfo.streak = 0
+	PlayerInfo.bestStreak = 0
 
 func _on_cabeca_encarnada_mouse_entered() -> void:
 	$select1.play()
